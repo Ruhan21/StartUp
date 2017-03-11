@@ -3,26 +3,44 @@ angular.module('app',[
   'ngMaterial',
   'app.aboutController',
   'app.introController',
-  'app.appController'
+  'app.headerController'
 ])
 
   .config(function ($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/intro');
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider
-      .state('intro', {
-        url: '/intro',
-        templateUrl: 'views/intro.html',
-        controller: 'IntroCtrl',
+      .state('root', {
+        url: '',
+        abstract: true,
+        views:{
+          templateUrl: 'header.html',
+          controller: 'HeaderCtrl',
+        }
+      })
+
+      .state('root.intro', {
+        url: '/',
+        views:{
+          'container@':{
+            templateUrl: 'views/intro.html'
+          },
+          controller: 'IntroCtrl'
+        },
         data: {
           requireLogin: false
         }
       })
-      .state('about', {
-        url: '/about',
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
+
+      .state('root.about', {
+        url: '/',
+        views:{
+          'container@':{
+            templateUrl: 'views/about.html'
+          },
+          controller: 'AboutCtrl'
+        },
         data: {
           requireLogin: false
         }
