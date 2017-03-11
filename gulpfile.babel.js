@@ -113,7 +113,8 @@ gulp.task('scripts', () =>
       './app/scripts/main.js',
       './app/scripts/app.js',
       './app/scripts/controllers/AboutCtrl.js',
-      './app/scripts/controllers/IntroCtrl.js'
+      './app/scripts/controllers/IntroCtrl.js',
+      './app/scripts/controllers/AppCtrl.js'
       // Other scripts
     ])
       .pipe($.newer('.tmp/scripts'))

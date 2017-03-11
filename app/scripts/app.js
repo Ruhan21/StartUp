@@ -1,7 +1,9 @@
 angular.module('app',[
   'ui.router',
+  'ngMaterial',
   'app.aboutController',
-  'app.introController'
+  'app.introController',
+  'app.appController'
 ])
 
   .config(function ($stateProvider, $urlRouterProvider) {
