@@ -23,6 +23,7 @@ html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
   margin: 0;
   padding: 0;
+  height: initial;
 }
 .mdl-demo .mdl-layout__header-row {
   padding-left: 40px;

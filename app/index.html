@@ -56,39 +56,32 @@
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body ng-app="app" class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+<div class="container">
+  <header>
 
-<header>
-
-  <div>
-    <div ng-cloak>
-      <md-content class="md-padding">
-        <div flex>
-        <md-nav-bar
-          md-selected-nav-item="currentNavItem"
-          nav-bar-aria-label="navigation links">
-          <md-nav-item md-nav-sref="intro" name="into">
-            Home
-          </md-nav-item>
-          <md-nav-item md-nav-sref="about" name="about">
-            About Us
-          </md-nav-item>
-          <!--<md-nav-item md-nav-sref="venue" name="venue">-->
-            <!--Venue-->
-          <!--</md-nav-item>-->
-          <!--<md-nav-item md-nav-sref="budget" name="budget">-->
-            <!--Budget-->
-          <!--</md-nav-item>-->
-          <!--<md-nav-item md-nav-sref="admin" name="admin">-->
-            <!--Admin-->
-          <!--</md-nav-item>-->
-        </md-nav-bar>
-        </div>
-      </md-content>
+    <div>
+      <div ng-cloak>
+        <md-content class="md-padding">
+          <div flex>
+            <md-nav-bar
+              md-selected-nav-item="currentNavItem"
+              nav-bar-aria-label="navigation links">
+              <md-nav-item md-nav-sref="intro" name="into">
+                Home
+              </md-nav-item>
+              <md-nav-item md-nav-sref="about" name="about">
+                About Us
+              </md-nav-item>
+            </md-nav-bar>
+          </div>
+        </md-content>
+      </div>
     </div>
-  </div>
 
-</header>
-<div ui-view>
+  </header>
+
+  <div ui-view>
+  </div>
 </div>
 
 <!--<div ui-view></div>-->
@@ -108,6 +101,7 @@
 
 <!-- Angular Material Library -->
 <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
 
 
 <!-- build:js scripts/main.min.js -->

@@ -1,5 +1,71 @@
-<div class="jumbotron" style="background-image: url(../images/intro/B1.jpg); background-size:cover; border:ridge; height: 500px">
-  <div class="col-lg-5 col-md-5 col-sm-10 col-xs-12" >
+<div style="background-image: url(../images/intro/B1.jpg); background-size:cover; border:ridge; ">
+  <div layout-padding style="min-height: 250px;">
     <img src="../images/brand/Logo.png" class="img-responsive"/>
   </div>
 </div>
+
+<div layout="row" layout-sm="column" layout-xs="column">
+  <div flex="100">
+    <md-card>
+      <img src="../images/intro/c9.jpg" class="img-responsive thumbnail"/>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">About Us</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada rutrum elit, volutpat volutpat elit
+          condimentum id.</p>
+      </md-card-content>
+    </md-card>
+  </div>
+  <div layout="column" layout-sm="row" layout-xs="column" flex="100" layout-align="center stretch">
+    <div flex>
+      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
+        <div layout="row" layout-sm="column" layout-xs="column" layout-align="space-between stretch">
+          <div layout="column" flex-sm="100" flex-xs="100" flex="50">
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">Venue</span>
+              </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada rutrum elit, volutpat
+                volutpat
+                elit condimentum id.Nunc ut ex sed massa pellentesque blandit. Nullam </p>
+            </md-card-content>
+          </div>
+          <md-card-title-media flex-sm="100" flex-xs="100" flex="50">
+            <div class="md-media-md  card-media">
+              <img src="../images/intro/c8.jpg" class="img-responsive thumbnail"/>
+            </div>
+          </md-card-title-media>
+        </div>
+      </md-card>
+    </div>
+    <div flex>
+      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
+        <div layout="row" layout-sm="column" layout-xs="column" layout-align="space-between stretch">
+          <div layout="column" flex-sm="100" flex-xs="100" flex="50">
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">Guest List</span>
+              </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada rutrum elit, volutpat
+                volutpat
+                elit condimentum id.Nunc ut ex sed massa pellentesque blandit. Nullam </p>
+            </md-card-content>
+          </div>
+          <md-card-title-media flex-sm="100" flex-xs="100" flex="50">
+            <div class="md-media-md  card-media">
+              <img src="../images/intro/c3.jpg" class="img-responsive thumbnail"/>
+            </div>
+          </md-card-title-media>
+        </div>
+      </md-card>
+    </div>
+  </div>
+</div>
+
