@@ -6,41 +6,34 @@ angular.module('app',[
   'app.headerController'
 ])
 
+  .run(
+    [          '$rootScope', '$state', '$stateParams',
+      function ($rootScope,   $state,   $stateParams) {
+        $rootScope.$state = $state;
+        $rootScope.$stateParams = $stateParams;
+      }
+    ]
+  )
+
   .config(function ($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
-      .state('root', {
-        url: '',
-        abstract: true,
-        views:{
-          templateUrl: 'header.html',
-          controller: 'HeaderCtrl',
-        }
-      })
 
-      .state('root.intro', {
+      .state('intro', {
         url: '/',
-        views:{
-          'container@':{
-            templateUrl: 'views/intro.html'
-          },
-          controller: 'IntroCtrl'
-        },
+        templateUrl: 'views/intro.html',
+        controller: 'IntroCtrl',
         data: {
           requireLogin: false
         }
       })
 
-      .state('root.about', {
-        url: '/',
-        views:{
-          'container@':{
-            templateUrl: 'views/about.html'
-          },
-          controller: 'AboutCtrl'
-        },
+      .state('about', {
+        url: '/about',
+        templateUrl: 'views/about.html',
+        controller: 'AboutCtrl',
         data: {
           requireLogin: false
         }
