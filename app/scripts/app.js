@@ -1,6 +1,7 @@
 angular.module('app',[
   'ui.router',
   'ngMaterial',
+  'ui.bootstrap',
   'app.aboutController',
   'app.introController',
   'app.headerController'
