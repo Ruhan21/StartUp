@@ -66,6 +66,11 @@
             <md-nav-bar
               md-selected-nav-item="currentNavItem"
               nav-bar-aria-label="navigation links">
+              <div show-xs hide-gt-xs>
+                <md-button class="md-icon-button md-primary" aria-label="Settings" >
+                  <md-icon><span class="glyphicon glyphicon-align-justify"></span></md-icon>
+                </md-button>
+              </div>
               <md-nav-item md-nav-sref="intro" name="into">
                 Home
               </md-nav-item>
@@ -82,6 +87,19 @@
 
   <div ui-view>
   </div>
+
+  <footer>
+    <!--<div show-xs hide-gt-xs flex>-->
+      <!--&lt;!&ndash;<div class="demo-swipe" md-swipe-left="onSwipeLeft()">&ndash;&gt;-->
+        <!--&lt;!&ndash;<span class="no-select">Swipe me to the left</span>&ndash;&gt;-->
+        <!--&lt;!&ndash;<md-icon md-font-icon="android" aria-label="android"></md-icon>&ndash;&gt;-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+      <!--<md-divider></md-divider>-->
+      <!--<div class="demo-swipe" md-swipe-right="onSwipeRight()">-->
+        <!--<span class="no-select">Swipe me to the right</span>-->
+      <!--</div>-->
+    <!--</div>-->
+  </footer>
 </div>
 
 <!--<div ui-view></div>-->

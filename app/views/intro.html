@@ -4,84 +4,48 @@
   </div>
 </div>
 
+<pre>{{boolChangeClass}}</pre>
 
-<div layout-padding layout-align="space-around center" layout="row" layout-md="column" layout-sm="row" layout-xs="column">
-  <div layout="column" layout-fill layout-md="row" layout-sm="row" layout-xs="column">
-
-    <div flex-md="30" flex-sm="100" >
-      <md-card style="background-color:#00bcd4 ">
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">Number 1</span>
-          </md-card-title-text>
-        </md-card-title>
-      </md-card>
-    </div>
-
-    <div flex-md="70" flex-sm="100" hide-xs>
-      <md-card style="background-color:orangered ">
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">Number 2</span>
-          </md-card-title-text>
-        </md-card-title>
-      </md-card>
-    </div>
-
-    <div show-gt-lg hide-md hide-sm>
-      <md-card style="background-color:chartreuse ">
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">Number 3<span>
-          </md-card-title-text>
-        </md-card-title>
-      </md-card>
-    </div>
-
+<div layout-padding layout-align="space-around center" layout="row" layout-sm="column" layout-xs="column">
+  <div>
+    <md-card>
+      <div id="groom" style="background-image: url(../images/intro/L2-min.jpg); background-size:cover; border:ridge; height: 679px ">
+      </div>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline"><md-button style="font-size: 80%">The Groom</md-button></span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada rutrum elit, volutpat volutpat elit
+          condimentum id.</p>
+      </md-card-content>
+    </md-card>
   </div>
 
-  <div layout="column" layout-fill layout-md="row" layout-sm="row" layout-xs="column">
-
-    <div flex="50" flex-sm="100">
-      <md-card style="background-color:#00bcd4 ">
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">Number 4</span>
-          </md-card-title-text>
-        </md-card-title>
-      </md-card>
-    </div>
-
-    <div flex="50" flex-sm="100" hide-xs>
-      <md-card style="background-color:orangered ">
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">Number 5</span>
-          </md-card-title-text>
-        </md-card-title>
-      </md-card>
-    </div>
-
-    <div show-gt-lg hide-md hide-sm>
-      <md-card style="background-color: chartreuse ">
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">Number 6<span>
-          </md-card-title-text>
-        </md-card-title>
-      </md-card>
-    </div>
-
+  <div>
+    <md-card>
+      <div id="bride" style="background-image: url(../images/intro/L5-min.jpg); background-size:cover; border:ridge; height: 679px ">
+      </div>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline"><md-button style="font-size: 80%">The Bride</md-button></span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada rutrum elit, volutpat volutpat elit
+          condimentum id.</p>
+      </md-card-content>
+    </md-card>
   </div>
 </div>
 
-
-
+<pre>{{boolChangeClass}}</pre>
 
 <div layout="row" layout-sm="column" layout-xs="column">
   <div flex="100">
-    <md-card>
-      <img src="../images/intro/c1.jpg" height="420" width="630"/>
+    <md-card scroll ng-show="boolChangeClass" class="animateShow animateHide" >
+      <img src="../images/intro/c1.jpg" class="img-responsive thumbnail"/>
       <md-card-title>
         <md-card-title-text>
           <span class="md-headline"><md-button style="font-size: 80%">About Us</md-button></span>
@@ -95,7 +59,7 @@
   </div>
   <div layout="column" layout-sm="row" layout-xs="column" flex="100" layout-align="center stretch">
     <div flex>
-      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
+      <md-card scroll ng-show="boolChangeClass" class="animateShow animateHide" >
         <div layout="row" layout-sm="column" layout-xs="column" layout-align="space-between stretch">
           <div layout="column" flex-sm="100" flex-xs="100" flex="50">
             <md-card-title>
@@ -118,7 +82,7 @@
       </md-card>
     </div>
     <div flex>
-      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
+      <md-card scroll ng-show="boolChangeClass" class="animateShow animateHide" >
         <div layout="row" layout-sm="column" layout-xs="column" layout-align="space-between stretch">
           <div layout="column" flex-sm="100" flex-xs="100" flex="50">
             <md-card-title>
@@ -142,3 +106,74 @@
     </div>
   </div>
 </div>
+
+
+<!--<div layout-padding layout-align="space-around center" layout="row" layout-md="column" layout-sm="row" layout-xs="column">-->
+<!--<div layout="column" layout-fill layout-md="row" layout-sm="row" layout-xs="column">-->
+
+<!--<div flex-md="30" flex-sm="100" >-->
+<!--<md-card style="background-color:#00bcd4 ">-->
+<!--<md-card-title>-->
+<!--<md-card-title-text>-->
+<!--<span class="md-headline">Number 1</span>-->
+<!--</md-card-title-text>-->
+<!--</md-card-title>-->
+<!--</md-card>-->
+<!--</div>-->
+
+<!--<div flex-md="70" flex-sm="100" hide-xs>-->
+<!--<md-card style="background-color:orangered ">-->
+<!--<md-card-title>-->
+<!--<md-card-title-text>-->
+<!--<span class="md-headline">Number 2</span>-->
+<!--</md-card-title-text>-->
+<!--</md-card-title>-->
+<!--</md-card>-->
+<!--</div>-->
+
+<!--<div show-gt-lg hide-md hide-sm>-->
+<!--<md-card style="background-color:chartreuse ">-->
+<!--<md-card-title>-->
+<!--<md-card-title-text>-->
+<!--<span class="md-headline">Number 3<span>-->
+<!--</md-card-title-text>-->
+<!--</md-card-title>-->
+<!--</md-card>-->
+<!--</div>-->
+
+<!--</div>-->
+
+<!--<div layout="column" layout-fill layout-md="row" layout-sm="row" layout-xs="column">-->
+
+<!--<div flex="50" flex-sm="100">-->
+<!--<md-card style="background-color:#00bcd4 ">-->
+<!--<md-card-title>-->
+<!--<md-card-title-text>-->
+<!--<span class="md-headline">Number 4</span>-->
+<!--</md-card-title-text>-->
+<!--</md-card-title>-->
+<!--</md-card>-->
+<!--</div>-->
+
+<!--<div flex="50" flex-sm="100" hide-xs>-->
+<!--<md-card style="background-color:orangered ">-->
+<!--<md-card-title>-->
+<!--<md-card-title-text>-->
+<!--<span class="md-headline">Number 5</span>-->
+<!--</md-card-title-text>-->
+<!--</md-card-title>-->
+<!--</md-card>-->
+<!--</div>-->
+
+<!--<div show-gt-lg hide-md hide-sm>-->
+<!--<md-card style="background-color: chartreuse ">-->
+<!--<md-card-title>-->
+<!--<md-card-title-text>-->
+<!--<span class="md-headline">Number 6<span>-->
+<!--</md-card-title-text>-->
+<!--</md-card-title>-->
+<!--</md-card>-->
+<!--</div>-->
+
+<!--</div>-->
+<!--</div>-->

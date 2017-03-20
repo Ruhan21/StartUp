@@ -2,7 +2,7 @@
 <div layout="row" layout-padding layout-align="space-between center"
      style="background-image: url(../images/about/about-1.jpg); background-size:cover; border:ridge; ">
 
-  <div flex="50" ng-show="p1" class="animate-show animate-hide">
+  <div flex="50" ng-show="p1" class="animateShow animateHide">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dapibus quam in tortor placerat, in ullamcorper lacus
       commodo. Nulla sodales eros ac odio posuere, quis imperdiet mi interdum. Cras in vehicula orci. Nulla id porttitor
       velit. Duis venenatis gravida ipsum, non vestibulum ex iaculis vitae. Praesent interdum mollis nunc, ac sodales
@@ -10,7 +10,7 @@
       eget nisl. Nam suscipit, metus quis pellentesque posuere, sapien nulla elementum eros, elementum vestibulum felis
       velit nec velit. Curabitur tempor semper lorem at placerat.</p>
   </div>
-  <div  flex="50" ng-show="p2" class="animate-show animate-hide">
+  <div  flex="50" ng-show="p2" class="animateShow animateHide">
     <p>In interdum consectetur eros et aliquet. Donec porttitor risus eu venenatis venenatis. Aliquam a magna risus.
       Etiam ornare sem a luctus vulputate. Cras ac ultricies augue, vitae porttitor ligula. Donec tempor urna vitae
       ipsum dictum ultricies. Quisque sit amet tellus at nisl sollicitudin sagittis eu non nibh. Sed sagittis venenatis
@@ -21,7 +21,19 @@
       nunc leo, finibus non ligula a, facilisis bibendum dolor. Curabitur lobortis turpis nec lacus fringilla, quis
       consequat mauris tristique. Quisque eu sapien sem. Nulla condimentum velit enim, ac commodo quam venenatis
       non.</p>
+
+    <md-button class="md-primary md-hue-1 animate-show animate-hide">Venue</md-button>
   </div>
 
+</div>
+
+<div show-xs hide-gt-xs flex>
+  <div class="demo-swipe" md-swipe-left="onSwipeLeft()">
+  <span class="no-select">Swipe me to the left</span>
+  </div>
+  <md-divider></md-divider>
+  <!--<div class="demo-swipe" md-swipe-right="onSwipeRight()">-->
+    <!--<span class="no-select">Swipe me to the right</span>-->
+  <!--</div>-->
 </div>
 

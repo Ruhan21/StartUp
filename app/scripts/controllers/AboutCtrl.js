@@ -21,5 +21,14 @@ angular.module('app.aboutController', [])
 
     }());
 
+    $scope.onSwipeLeft = function() {
+      console.log('heloo');
+      $state.go('about');
+    };
+
+    // $scope.onSwipeRight = function(){
+    //   console.log('heloo');
+    //   $state.go('about');
+    // }
 
   });
