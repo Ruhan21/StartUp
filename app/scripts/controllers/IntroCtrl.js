@@ -50,7 +50,7 @@ angular.module('app.introController', [])
   .directive("scroll", function ($window) {
   return function(scope, element, attrs) {
     angular.element($window).bind("scroll", function() {
-      if (this.pageYOffset >= 600) {
+      if (this.pageYOffset >= 500) {
         scope.boolChangeClass = true;
         console.log('Scrolled below header.');
       } else {

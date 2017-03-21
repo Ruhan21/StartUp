@@ -57,32 +57,54 @@
 </head>
 <body ng-app="app" class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
 <div class="container">
-  <header>
+  <header ng-controller="HeaderCtrl">
 
-    <div>
-      <div ng-cloak>
-        <md-content class="md-padding">
-          <div flex>
-            <md-nav-bar
-              md-selected-nav-item="currentNavItem"
-              nav-bar-aria-label="navigation links">
-              <div show-xs hide-gt-xs>
-                <md-button class="md-icon-button md-primary" aria-label="Settings" >
-                  <md-icon><span class="glyphicon glyphicon-align-justify"></span></md-icon>
-                </md-button>
-              </div>
-              <md-nav-item md-nav-sref="intro" name="into">
-                Home
-              </md-nav-item>
-              <md-nav-item md-nav-sref="about" name="about">
-                About Us
-              </md-nav-item>
-            </md-nav-bar>
-          </div>
-        </md-content>
+      <div class="lock-size" layout="row" layout-align="start center" >
+        <md-fab-speed-dial md-open="isOpen" md-direction="{{selectedDirection}}"
+                           ng-class="selectedMode">
+          <md-fab-trigger>
+            <md-button aria-label="menu" class="md-fab md-warn">
+              <md-icon><span class="glyphicon glyphicon-align-justify"></span></md-icon>
+            </md-button>
+          </md-fab-trigger>
+
+          <md-fab-actions>
+            <md-button data-ui-sref="intro" name="into" aria-label="Twitter" class="md-fab md-raised md-mini">
+              <md-icon><span class="glyphicon glyphicon-home"></span></md-icon>
+            </md-button>
+            <md-button data-ui-sref="about" name="about" aria-label="Facebook"
+                       class="md-fab md-raised md-mini">
+              <md-icon><span class="glyphicon glyphicon-heart"></span></md-icon>
+            </md-button>
+            <md-button data-ui-sref="admin" name="admin" aria-label="Google Hangout"
+                       class="md-fab md-raised md-mini">
+              <md-icon><span class="glyphicon glyphicon-list-alt"></span></md-icon>
+            </md-button>
+          </md-fab-actions>
+        </md-fab-speed-dial>
       </div>
-    </div>
 
+      <div hide-xs show-gt-xs>
+        <div ng-cloak>
+          <md-content class="md-padding">
+            <div flex>
+              <md-nav-bar
+                md-selected-nav-item="currentNavItem"
+                nav-bar-aria-label="navigation links">
+                <md-nav-item md-nav-sref="intro" name="into">
+                  Home
+                </md-nav-item>
+                <md-nav-item md-nav-sref="about" name="about">
+                  About Us
+                </md-nav-item>
+                <md-nav-item md-nav-sref="admin" name="admin">
+                  Admin
+                </md-nav-item>
+              </md-nav-bar>
+            </div>
+          </md-content>
+        </div>
+      </div>
   </header>
 
   <div ui-view>
@@ -90,14 +112,14 @@
 
   <footer>
     <!--<div show-xs hide-gt-xs flex>-->
-      <!--&lt;!&ndash;<div class="demo-swipe" md-swipe-left="onSwipeLeft()">&ndash;&gt;-->
-        <!--&lt;!&ndash;<span class="no-select">Swipe me to the left</span>&ndash;&gt;-->
-        <!--&lt;!&ndash;<md-icon md-font-icon="android" aria-label="android"></md-icon>&ndash;&gt;-->
-      <!--&lt;!&ndash;</div>&ndash;&gt;-->
-      <!--<md-divider></md-divider>-->
-      <!--<div class="demo-swipe" md-swipe-right="onSwipeRight()">-->
-        <!--<span class="no-select">Swipe me to the right</span>-->
-      <!--</div>-->
+    <!--&lt;!&ndash;<div class="demo-swipe" md-swipe-left="onSwipeLeft()">&ndash;&gt;-->
+    <!--&lt;!&ndash;<span class="no-select">Swipe me to the left</span>&ndash;&gt;-->
+    <!--&lt;!&ndash;<md-icon md-font-icon="android" aria-label="android"></md-icon>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--<md-divider></md-divider>-->
+    <!--<div class="demo-swipe" md-swipe-right="onSwipeRight()">-->
+    <!--<span class="no-select">Swipe me to the right</span>-->
+    <!--</div>-->
     <!--</div>-->
   </footer>
 </div>
@@ -123,13 +145,14 @@
 <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
 
 
-
 <!-- build:js scripts/main.min.js -->
 <script src="scripts/main.js"></script>
 <script src="scripts/app.js"></script>
 <script src="scripts/controllers/AboutCtrl.js"></script>
 <script src="scripts/controllers/IntroCtrl.js"></script>
 <script src="scripts/controllers/HeaderCtrl.js"></script>
+<script src="scripts/controllers/AdminCtrl.js"></script>
+
 
 <!-- endbuild -->
 

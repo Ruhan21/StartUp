@@ -1,10 +1,12 @@
 angular.module('app',[
   'ui.router',
   'ngMaterial',
+  'ngSanitize',
   'ui.bootstrap',
   'app.aboutController',
   'app.introController',
-  'app.headerController'
+  'app.headerController',
+  'app.adminController',
 ])
 
   .run(
@@ -39,4 +41,14 @@ angular.module('app',[
           requireLogin: false
         }
       })
+
+      .state('admin', {
+        url: '/admin',
+        templateUrl: 'views/admin.html',
+        controller: 'AdminCtrl',
+        data: {
+          requireLogin: false
+        }
+      })
   });
+
