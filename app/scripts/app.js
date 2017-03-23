@@ -3,6 +3,7 @@ angular.module('app',[
   'ngMaterial',
   'ngSanitize',
   'ui.bootstrap',
+  'smart-table',
   'app.aboutController',
   'app.introController',
   'app.headerController',

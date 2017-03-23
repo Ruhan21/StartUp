@@ -1,0 +1,48 @@
+<div id="stationary.html">
+
+  <uib-accordion close-others="oneAtATime">
+    <div uib-accordion-group class="panel-default" is-open="status.open">
+      <uib-accordion-heading>
+        Stationary <i class="pull-right glyphicon"
+                      ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+      </uib-accordion-heading>
+
+      <div layout="row">
+        <table st-table="displayCollection" st-safe-src="rowCollection" class="table table-striped">
+          <thead>
+          <tr>
+            <th st-sort="firstName">first name</th>
+            <th st-sort="lastName">last name</th>
+            <th st-sort="birthDate">birth date</th>
+            <th st-sort="balance">balance</th>
+            <th>
+              <button type="button" ng-click="modalPrompt(newItem,'add')" class="btn btn-sm btn-success">
+                <i class="glyphicon glyphicon-plus"></i>
+              </button>
+            </th>
+          </tr>
+          <tr>
+            <th colspan="5" flex><input st-search="" class="form-control" placeholder="global search ..." type="text"/>
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="row in displayCollection track by $index" ng-click="modalPrompt(row,'')">
+            <td>{{row.firstName}}</td>
+            <td>{{row.lastName}}</td>
+            <td>{{row.birthDate}}</td>
+            <td>{{row.balance | currency}}</td>
+            <td>
+              <button type="button" ng-click="removeItem(row)" class="btn btn-sm btn-danger">
+                <i class="glyphicon glyphicon-remove-circle">
+                </i>
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </uib-accordion>
+  <pre>{{rowCollection | json}}</pre>
+</div>
