@@ -43,7 +43,90 @@ angular.module('app.introController', [])
     $scope.animateClick = function(){
       console.log('clicked');
       $scope.section2 = !$scope.section2;
-    }
+    };
+
+
+    // string kata /////////////////////////////////////////////////////////
+
+
+    $scope.numbers = '/-1/[*][%]\n1*2%3$-5;10001%-500;-1';
+    $scope.numbersArray = [];
+    $scope.negativeNumbersArray = [];
+
+
+    $scope.intAdd = function(numbers){
+      if(numbers.length <= 0){
+        return 0
+      }else{
+        numbers = $scope.checkForNegatives(numbers);
+        $scope.getNumbers(numbers);
+        var sum = $scope.numbersArray.reduce(function(a,b){return a + b;},0);
+        return sum;
+      }
+    };
+
+    $scope.getNumbers = function (numbers) {
+
+      var thenum = numbers.replace( /^\D+/g, '');
+      var numArray = [];
+      console.log(thenum);
+
+      var r = /\d+/g;
+      var m;
+      while ((m = r.exec(thenum)) != null) {
+        numArray.push(m[0]);
+      }
+
+      angular.forEach(numArray,function(value){
+        if(!isNaN(value) && value <= 1000) {
+          $scope.numbersArray.push(parseInt(value));
+        }
+      });
+
+    };
+
+    $scope.checkForNegatives = function (number) {
+
+      var part = number.split('-');
+      part.shift();
+
+      angular.forEach(part,function(value){
+        var r = /\d+/g;
+        var negativeNum = r.exec(value);
+        negativeNum = -Math.abs(negativeNum[0]);
+        $scope.negativeNumbersArray.push(negativeNum);
+        console.log(negativeNum);
+        number = number.replace(negativeNum.toString(),"");
+      });
+
+      return number;
+    };
+
+    console.log($scope.intAdd($scope.numbers));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   })
 
