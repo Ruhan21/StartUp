@@ -49,7 +49,7 @@ angular.module('app.introController', [])
     // string kata /////////////////////////////////////////////////////////
 
 
-    $scope.numbers = '/-1/[*][%]\n1*2%3$-5;10001%-500;-1';
+    $scope.numbers = '1//[*]1[%]\n1*2%3';
     $scope.numbersArray = [];
     $scope.negativeNumbersArray = [];
 
@@ -67,14 +67,13 @@ angular.module('app.introController', [])
 
     $scope.getNumbers = function (numbers) {
 
-      var thenum = numbers.replace( /^\D+/g, '');
+      var allNumbers = numbers.replace( /^\D+/g, '');
       var numArray = [];
-      console.log(thenum);
 
-      var r = /\d+/g;
-      var m;
-      while ((m = r.exec(thenum)) != null) {
-        numArray.push(m[0]);
+      var getNumbersPattern = /\d+/g;
+      var tempNum;
+      while ((tempNum = getNumbersPattern.exec(allNumbers)) != null) {
+        numArray.push(tempNum[0]);
       }
 
       angular.forEach(numArray,function(value){
@@ -91,18 +90,132 @@ angular.module('app.introController', [])
       part.shift();
 
       angular.forEach(part,function(value){
-        var r = /\d+/g;
-        var negativeNum = r.exec(value);
-        negativeNum = -Math.abs(negativeNum[0]);
-        $scope.negativeNumbersArray.push(negativeNum);
-        console.log(negativeNum);
-        number = number.replace(negativeNum.toString(),"");
+
+          var getNumbersPattern = /\d+/g;
+          try{
+            var negativeNum = getNumbersPattern.exec(value);
+            negativeNum = -Math.abs(negativeNum[0]);
+            $scope.negativeNumbersArray.push(negativeNum);
+            //console.log(negativeNum);
+            number = number.replace(negativeNum.toString(),"");
+          }catch (error){
+
+          }
+
       });
 
       return number;
     };
 
-    console.log($scope.intAdd($scope.numbers));
+
+    $scope.ifEmptyReturnZero = function(expected,input){
+     if($scope.intAdd(input) === expected){
+       return true;
+     } else {
+       return false;
+     }
+    };
+
+    $scope.allowMultipleNumbers = function(expected,input){
+      $scope.numbersArray = [];
+      $scope.negativeNumbersArray = [];
+     if($scope.intAdd(input) === expected){
+       return true;
+     } else {
+       return false;
+     }
+    };
+
+    $scope.allowNewLinesBetweenNumbers = function(expected,input){
+      $scope.numbersArray = [];
+      $scope.negativeNumbersArray = [];
+     if($scope.intAdd(input) === expected){
+       return true;
+     } else {
+       return false;
+     }
+    };
+
+    $scope.supportDifferentDelims = function(expected,input){
+      $scope.numbersArray = [];
+      $scope.negativeNumbersArray = [];
+     if($scope.intAdd(input) === expected){
+       return true;
+     } else {
+       return false;
+     }
+    };
+
+    $scope.noNegativeNumbers = function(expected,input){
+      $scope.numbersArray = [];
+      $scope.negativeNumbersArray = [];
+     if($scope.intAdd(input) === expected){
+       return true;
+     } else {
+       return false;
+     }
+    };
+
+    $scope.numbersBiggerThanThousand = function(expected,input){
+      $scope.numbersArray = [];
+      $scope.negativeNumbersArray = [];
+     if($scope.intAdd(input) === expected){
+       return true;
+     } else {
+       return false;
+     }
+    };
+
+    $scope.delimsAnyLengthFormat = function(expected,input){
+      $scope.numbersArray = [];
+      $scope.negativeNumbersArray = [];
+     if($scope.intAdd(input) === expected){
+       return true;
+     } else {
+       return false;
+     }
+    };
+
+    $scope.allowMultipleDelims = function(expected,input){
+      $scope.numbersArray = [];
+      $scope.negativeNumbersArray = [];
+     if($scope.intAdd(input) === expected){
+       return true;
+     } else {
+       return false;
+     }
+    };
+
+    $scope.allowMultipleDelimsOfLength = function(expected,input){
+      $scope.numbersArray = [];
+      $scope.negativeNumbersArray = [];
+     if($scope.intAdd(input) === expected){
+       return true;
+     } else {
+       return false;
+     }
+    };
+
+    $scope.allowAnything = function(expected,input){
+      $scope.numbersArray = [];
+      $scope.negativeNumbersArray = [];
+     if($scope.intAdd(input) === expected){
+       return true;
+     } else {
+       return false;
+     }
+    };
+
+    console.log($scope.ifEmptyReturnZero(0,""));
+    console.log($scope.allowMultipleNumbers(6,"2,1,1,2"));
+    console.log($scope.allowNewLinesBetweenNumbers(6,"1\n2,3"));
+    console.log($scope.supportDifferentDelims(3,"//;\n1;2"));
+    console.log($scope.noNegativeNumbers(3,"//;\n1;2;-1"));
+    console.log($scope.numbersBiggerThanThousand(3,"//;\n1;2;1001"));
+    console.log($scope.delimsAnyLengthFormat(6,"//[***]\n1***2***3"));
+    console.log($scope.allowMultipleDelims(6,"//[*][%]\n1*2%3"));
+    console.log($scope.allowMultipleDelimsOfLength(6,"//[******][%%%%%]\n1******2%%%%%3"));
+    console.log($scope.allowAnything(6,"asmhdshadg1sdjfh4asjkdkasd-11111,asdasdjh,1"));
 
 
 
