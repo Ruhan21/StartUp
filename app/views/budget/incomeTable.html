@@ -1,0 +1,33 @@
+<div id="incomeTable.html">
+
+
+  <uib-accordion close-others="oneAtATime">
+    <div uib-accordion-group class="panel-default" is-open="status.open">
+      <uib-accordion-heading>
+        Total $556,000.00 <i class="pull-right glyphicon"
+                      ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+      </uib-accordion-heading>
+
+      <div layout="row">
+        <table st-table="incomeDisplayCollection" st-safe-src="incomeRowCollection" class="table table-striped">
+          <thead>
+          <tr>
+            <th st-sort="description" flex>Description</th>
+            <th st-sort="amount" flex>Amount</th>
+            <th st-sort="monthsLeft" flex>Months left</th>
+            <th st-sort="total" flex>Total</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="row in incomeDisplayCollection track by $index">
+            <td flex>{{row.description}}</td>
+            <td flex>{{row.amount | currency}}</td>
+            <td flex>{{row.monthsLeft}}</td>
+            <td flex>{{row.total | currency}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </uib-accordion>
+</div>

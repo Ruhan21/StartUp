@@ -69,14 +69,18 @@
           </md-fab-trigger>
 
           <md-fab-actions>
-            <md-button data-ui-sref="intro" name="into" aria-label="Twitter" class="md-fab md-raised md-mini">
+            <md-button data-ui-sref="intro" name="into" class="md-fab md-raised md-mini">
               <md-icon><span class="glyphicon glyphicon-home"></span></md-icon>
             </md-button>
-            <md-button data-ui-sref="about" name="about" aria-label="Facebook"
+            <md-button data-ui-sref="about" name="about"
                        class="md-fab md-raised md-mini">
               <md-icon><span class="glyphicon glyphicon-heart"></span></md-icon>
             </md-button>
-            <md-button data-ui-sref="admin" name="admin" aria-label="Google Hangout"
+            <md-button data-ui-sref="admin" name="admin"
+                       class="md-fab md-raised md-mini">
+              <md-icon><span class="glyphicon glyphicon-list-alt"></span></md-icon>
+            </md-button>
+            <md-button data-ui-sref="budget" name="budget"
                        class="md-fab md-raised md-mini">
               <md-icon><span class="glyphicon glyphicon-list-alt"></span></md-icon>
             </md-button>
@@ -99,6 +103,9 @@
                 </md-nav-item>
                 <md-nav-item md-nav-sref="admin" name="admin">
                   Admin
+                </md-nav-item>
+                <md-nav-item md-nav-sref="budget" name="budget">
+                  Budget
                 </md-nav-item>
               </md-nav-bar>
             </div>
@@ -132,6 +139,7 @@
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-smart-table/2.1.8/smart-table.min.js"></script>
 
@@ -145,6 +153,10 @@
 
 <!-- Angular Material Library -->
 <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+<script src="//cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js"></script>
+
+
+
 
 
 <!-- build:js scripts/main.min.js -->
@@ -154,6 +166,7 @@
 <script src="scripts/controllers/IntroCtrl.js"></script>
 <script src="scripts/controllers/HeaderCtrl.js"></script>
 <script src="scripts/controllers/AdminCtrl.js"></script>
+<script src="scripts/controllers/BudgetCtrl.js"></script>
 
 
 <!-- endbuild -->

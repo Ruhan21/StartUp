@@ -4,10 +4,12 @@ angular.module('app',[
   'ngSanitize',
   'ui.bootstrap',
   'smart-table',
+  'chart.js',
   'app.aboutController',
   'app.introController',
   'app.headerController',
   'app.adminController',
+  'app.budgetController',
 ])
 
   .run(
@@ -47,6 +49,15 @@ angular.module('app',[
         url: '/admin',
         templateUrl: 'views/admin.html',
         controller: 'AdminCtrl',
+        data: {
+          requireLogin: false
+        }
+      })
+
+      .state('budget', {
+        url: '/budget',
+        templateUrl: 'views/budget.html',
+        controller: 'BudgetCtrl',
         data: {
           requireLogin: false
         }
