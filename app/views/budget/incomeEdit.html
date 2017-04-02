@@ -6,7 +6,85 @@
                               ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
       </uib-accordion-heading>
 
-      <div layout="row">
+      <div layout="column">
+
+        <form>
+
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description" aria-describedby="descriptionHelp"
+                   placeholder="Description">
+            <small id="descriptionHelp" class="form-text text-muted">We'll never share your email with anyone else.
+            </small>
+          </div>
+
+          <div class="form-group">
+            <label for="amount">Amount</label>
+            <input type="number" class="form-control" id="amount" aria-describedby="amountHelp"
+                   placeholder="Amount">
+            <small id="amountHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+
+          <div class="form-group">
+            <label for="total">Total</label>
+            <input type="number" class="form-control" id="total" aria-describedby="totalHelp"
+                   placeholder="Total">
+            <small id="totalHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <div layout-padding>
+
+          <div layout="row">
+            <form name="projectForm">
+              <md-input-container flex="30">
+                <label>Client Name</label>
+                <input required name="clientName" ng-model="project.clientName">
+                <div ng-messages="projectForm.clientName.$error">
+                  <div ng-message="required">This is required.</div>
+                </div>
+              </md-input-container>
+
+              <md-input-container flex="30">
+                <label>Client Name</label>
+                <input required name="clientName" ng-model="project.clientName">
+                <div ng-messages="projectForm.clientName.$error">
+                  <div ng-message="required">This is required.</div>
+                </div>
+              </md-input-container>
+
+              <md-input-container flex="30">
+                <label>Client Name</label>
+                <input required name="clientName" ng-model="project.clientName">
+                <div ng-messages="projectForm.clientName.$error">
+                  <div ng-message="required">This is required.</div>
+                </div>
+              </md-input-container>
+            </form>
+          </div>
+
+          <table st-table="incomeDisplayCollection" st-safe-src="incomeRowCollection" class="table table-striped">
+            <thead>
+            <tr>
+              <th st-sort="description" flex>Description</th>
+              <th st-sort="amount" flex>Amount</th>
+              <th st-sort="monthsLeft" flex>Months left</th>
+              <th st-sort="total" flex>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="row in incomeDisplayCollection track by $index">
+              <td flex>{{row.description}}</td>
+              <td flex>{{row.amount | currency}}</td>
+              <td flex>{{row.monthsLeft}}</td>
+              <td flex>{{row.total | currency}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
 
       </div>
     </div>

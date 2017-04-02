@@ -8,15 +8,15 @@
       </md-card-title>
       <md-card-content>
 
-        <div layout-gt-sm="row" layout="column" layout-padding layout-align-gt-sm="space-around center">
-          <div flex-gt-sm="60" flex="100">
+        <div layout-gt-md="row" layout="column" layout-padding layout-align-gt-md="space-around center">
+          <div flex-gt-md="60" flex="100">
             <canvas id="line" class="chart chart-line" chart-data="data"
                     chart-labels="labels" chart-series="series" chart-options="options"
                     chart-dataset-override="datasetOverride" chart-click="onClick">
             </canvas>
           </div>
 
-          <div flex-gt-sm="40" flex="100">
+          <div flex-gt-md="40" flex="100">
             <md-card-title-text>
               <span class="md-headline"><md-button style="font-size: 80%">Budget income</md-button></span>
             </md-card-title-text>
@@ -39,7 +39,7 @@
           <span class="md-headline"><md-button style="font-size: 80%">Budget target</md-button></span>
         </md-card-title-text>
 
-        <div ng-include src="'views/budget/incomeTable.html'"></div>
+        <div ng-include src="'views/budget/targetTable.html'"></div>
 
         <hr>
 
@@ -80,7 +80,7 @@
       <md-card-content>
 
 
-        <div ng-include src="'views/budget/incomeTable.html'"></div>
+        <div ng-include src="'views/budget/incomeEdit.html'"></div>
 
 
       </md-card-content>

@@ -31,6 +31,8 @@ angular.module('app.budgetController', [])
       }
     };
 
+    /////////////////////Doughnut//////////////////////
+
     $scope.labelsDoughnut = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
     $scope.dataDoughnut = [300, 500, 100];
     $scope.optionsDoughnut = {
@@ -43,7 +45,26 @@ angular.module('app.budgetController', [])
       }
     };
 
+/////////////////Bar chart///////////////////////////
 
+    $scope.labelsBar = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+    $scope.seriesBar = ['Series A', 'Series B' ,'Series C'];
+
+    $scope.dataBar = [
+      [65, 59, 80, 81, 56, 55, 40],
+      [28, 48, 40, 19, 86, 27, 90],
+      [66, 64, 71, 45, 35, 75, 44]
+    ];
+
+    $scope.optionsBar = {
+      legend: {
+        display: true,
+        position: "bottom",
+        labels: {
+          fontColor: 'rgb(255, 99, 132)'
+        }
+      }
+    };
 
     /////////////////Smart Table/////////////////
 
