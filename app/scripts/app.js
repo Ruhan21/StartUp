@@ -1,5 +1,6 @@
 angular.module('app',[
   'ui.router',
+  'inputDirectives',
   'ngMaterial',
   'ngSanitize',
   'ui.bootstrap',
@@ -10,6 +11,7 @@ angular.module('app',[
   'app.headerController',
   'app.adminController',
   'app.budgetController',
+  'app.venueController',
 ])
 
   .run(
@@ -58,6 +60,15 @@ angular.module('app',[
         url: '/budget',
         templateUrl: 'views/budget.html',
         controller: 'BudgetCtrl',
+        data: {
+          requireLogin: false
+        }
+      })
+
+      .state('venue', {
+        url: '/venue',
+        templateUrl: 'views/venue.html',
+        controller: 'VenueCtrl',
         data: {
           requireLogin: false
         }

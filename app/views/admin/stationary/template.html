@@ -1,5 +1,7 @@
 <div id="stationary.html">
 
+
+
   <uib-accordion close-others="oneAtATime">
     <div uib-accordion-group class="panel-default" is-open="status.open">
       <uib-accordion-heading>
@@ -27,11 +29,12 @@
           </tr>
           </thead>
           <tbody>
-          <tr ng-repeat="row in displayCollection track by $index" ng-click="modalPrompt(row,'')">
-            <td>{{row.firstName}}</td>
-            <td>{{row.lastName}}</td>
-            <td>{{row.birthDate}}</td>
-            <td>{{row.balance | currency:"R":0}}</td>
+          <tr ng-repeat="row in displayCollection track by $index">
+            <td><table-input-text ng-model="row.firstName"></table-input-text></td>
+            <td><table-input-text ng-model="row.lastName"></table-input-text></td>
+            <td><table-input-text ng-model="row.birthDate"></table-input-text></td>
+            <td><table-input-currency ng-model="row.balance"></table-input-currency></td>
+            <!--<td>{{row.balance | currency:"R":0}}</td>-->
             <td>
               <button type="button" ng-click="removeItem(row)" class="btn btn-sm btn-danger">
                 <i class="glyphicon glyphicon-remove-circle">

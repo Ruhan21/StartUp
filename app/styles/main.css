@@ -215,11 +215,11 @@ html, body {
 
 .animateShow,
 .animateHide {
-  -webkit-transition:all linear 4s;
-  -moz-transition:all linear 4s;
-  -ms-transition:all linear 4s;
-  -o-transition:all linear 4s;
-  transition:all linear 4s;
+  -webkit-transition:all linear 3s;
+  -moz-transition:all linear 3s;
+  -ms-transition:all linear 3s;
+  -o-transition:all linear 3s;
+  transition:all linear 3s;
 }
 
 .animateShow.ng-hide-remove,
@@ -286,5 +286,10 @@ tfoot td {
 
 md-dialog{
   max-height: 100%;
+}
+
+.inputTable{
+  border: none;
+  background-color: transparent;
 }
 
