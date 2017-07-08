@@ -1,0 +1,51 @@
+<div id="header">
+  <div ng-cloak>
+    <md-content class="md-padding">
+      <md-nav-bar
+        md-selected-nav-item="currentNavItem"
+        nav-bar-aria-label="navigation links">
+        <md-nav-item md-nav-click="goto('page1')" name="page1">
+          Page One
+        </md-nav-item>
+        <md-nav-item md-nav-click="goto('page2')" name="page2">
+          Page Two
+        </md-nav-item>
+        <md-nav-item md-nav-click="goto('page3')" name="page3">
+          Page Three
+        </md-nav-item>
+        <!-- these require actual routing with ui-router or ng-route, so they
+        won't work in the demo
+        <md-nav-item md-nav-href="#page4" name="page5">Page Four</md-nav-item>
+        <md-nav-item md-nav-sref="app.page5" name="page4">Page Five</md-nav-item>
+        You can also add options for the <code>ui-sref-opts</code> attribute.
+        <md-nav-item md-nav-sref="page6" sref-opts="{reload:true, notify:true}">
+          Page Six
+        </md-nav-item>
+        -->
+      </md-nav-bar>
+    </md-content>
+  </div>
+</div>
+
+<!--<div layout="row" layout-padding class="bg-dark-blue nav-dark" layout-align="space-between center">-->
+<!--<div>-->
+<!--<md-button>Home</md-button>-->
+<!--<md-button>Item 1</md-button>-->
+<!--<md-button>Item 2</md-button>-->
+<!--<md-menu>-->
+<!--<md-button md-menu-origin ng-click="$mdOpenMenu()">Help</md-button>-->
+<!--<md-menu-content width="2">-->
+<!--<md-menu-item>-->
+<!--<md-button>Help</md-button>-->
+<!--</md-menu-item>-->
+<!--<md-menu-item>-->
+<!--<md-button>About</md-button>-->
+<!--</md-menu-item>-->
+<!--</md-menu-content>-->
+<!--</md-menu>-->
+<!--</div>-->
+<!--<div class="nav-buttons">-->
+<!--<md-button class="md-raised md-accent">My profile</md-button>-->
+<!--<md-button class="md-raised md-warn">Log Out</md-button>-->
+<!--</div>-->
+<!--</div>-->

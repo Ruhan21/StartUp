@@ -23,6 +23,7 @@ html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
   margin: 0;
   padding: 0;
+  height: initial;
 }
 .mdl-demo .mdl-layout__header-row {
   padding-left: 40px;
@@ -210,4 +211,215 @@ html, body {
 }
 .mdl-demo .mdl-menu__container {
   z-index: 99;
+}
+
+#groom {
+  margin-left: -228px;
+}
+
+#bride {
+  margin-left: 228px;
+}
+
+.animateShow,
+.animateHide {
+  -webkit-transition:all linear 3s;
+  -moz-transition:all linear 3s;
+  -ms-transition:all linear 3s;
+  -o-transition:all linear 3s;
+  transition:all linear 3s;
+}
+
+.animateShow.ng-hide-remove,
+.animateHide.ng-hide-add.ng-hide-add-active {
+  opacity: 0;
+  display: block !important;
+}
+
+.animateHide.ng-hide-add,
+.animateShow.ng-hide-remove.ng-hide-remove-active {
+  opacity: 1;
+  display: block !important;
+}
+
+table {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+table * {
+  box-sizing: inherit;
+  -moz-box-sizing: inherit;
+}
+
+thead {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+tbody {
+  overflow-y: scroll;
+  display: inline-block;
+}
+
+thead > tr, tbody > tr, tfoot > tr {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+thead, tfoot {
+  flex-shrink: 0;
+}
+
+th, tbody td {
+  width: 20%; /* this can vary */
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+}
+
+tfoot {
+  display: inline-block;
+}
+
+tfoot td {
+  width: 100%;
+  display: inline-block;
+}
+
+md-dialog{
+  max-height: 100%;
+}
+
+.inputTable{
+  border: none;
+  background-color: transparent;
+}
+
+.venue-button {
+  float: right;
+}
+
+.venue-img {
+  width: 100%;
+  height: auto;
+  -webkit-transition:all  linear 0.5s;
+  -moz-transition:all linear 0.5s;
+  -ms-transition:all linear 0.5s;
+  -o-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+
+.venue-img:hover {
+  opacity: 0.7;
+  border-radius: 10%;
+}
+
+.venue-img-border.top{
+  margin-left: -215px;
+}
+
+.venue-img-border.mid{
+  margin-left: -160px;
+}
+
+.venue-intro {
+  background-color: rgb(250,250,250);
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.venue-details {
+  background-color: #f5f5f5;
+}
+
+.venue-mid {
+  background-color: #e6e6e6;
+  height: 150px;
+}
+
+.venue-img-border {
+  border : solid 5px;
+  -webkit-transition:filter linear 0.3s;
+  transition:filter linear 0.3s;
+  position: relative;
+}
+
+.venue-img-border:hover {
+  filter: brightness(80%);
+}
+
+#vContacts:hover {
+  z-index: 1;
+  position: relative;
+}
+
+#vContacts {
+  margin-top: -179px;
+
+  -webkit-transition:all linear 1s;
+  transition:all linear 1s;
+}
+
+hr.fancy-line {
+  border: 0;
+  height: 1px;
+
+}
+hr.fancy-line:before {
+  top: -0.5em;
+  height: 1em;
+}
+hr.fancy-line:after {
+  content:'';
+  height: 0.5em;
+  top: 1px;
+}
+
+hr.fancy-line:before, hr.fancy-line:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+}
+
+hr.fancy-line, hr.fancy-line:before {
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 75%);
+}
+
+body, hr.fancy-line:after {
+  background: #f4f4f4;
+}
+
+/* Add Animation - Zoom in the Modal */
+
+/* Style the Image Used to Trigger the Modal */
+
+
+
+.myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
