@@ -12,6 +12,7 @@ angular.module('app',[
   'app.adminController',
   'app.budgetController',
   'app.venueController',
+  'ui.bootstrap'
 ])
 
   .run(

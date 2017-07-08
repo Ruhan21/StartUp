@@ -1,9 +1,12 @@
 angular.module('app.introController', [])
 
   .controller('IntroCtrl', function ($scope,$window, $state) {
-    $scope.onSwipeRight = function() {
-      alert('You swiped right!!');
-    };
+
+    $().ready(function () {
+      $("#bride").animate({marginLeft: '0px'}, 1300, 'easeOutBounce');
+      $("#groom").animate({marginLeft: '0px'}, 1000, 'easeOutBounce');
+      console.log('animate');
+    });
 
     $scope.landingHeight = 679;
 

@@ -213,6 +213,14 @@ html, body {
   z-index: 99;
 }
 
+#groom {
+  margin-left: -228px;
+}
+
+#bride {
+  margin-left: 228px;
+}
+
 .animateShow,
 .animateHide {
   -webkit-transition:all linear 3s;
@@ -297,10 +305,19 @@ md-dialog{
   float: right;
 }
 
-.venue-circle-img {
+.venue-img {
   width: 100%;
   height: auto;
-  border: 2px solid black;
+  -webkit-transition:all  linear 0.5s;
+  -moz-transition:all linear 0.5s;
+  -ms-transition:all linear 0.5s;
+  -o-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+
+.venue-img:hover {
+  opacity: 0.7;
+  border-radius: 10%;
 }
 
 hr.fancy-line {
@@ -335,6 +352,9 @@ body, hr.fancy-line:after {
 /* Add Animation - Zoom in the Modal */
 
 /* Style the Image Used to Trigger the Modal */
+
+
+
 .myImg {
   border-radius: 5px;
   cursor: pointer;

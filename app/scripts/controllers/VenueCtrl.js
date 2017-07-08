@@ -3,9 +3,9 @@ angular.module('app.venueController', [])
   .controller('VenueCtrl', function ($scope, $state) {
 
     $scope.people = [
-      { name: 'Janet Perkins', img: 'img/100-0.jpeg', newMessage: true },
-      { name: 'Mary Johnson', img: 'img/100-1.jpeg', newMessage: false },
-      { name: 'Peter Carlsson', img: 'img/100-2.jpeg', newMessage: false }
+      {name: 'Janet Perkins', img: '../images/venue/v3.jpg', newMessage: true},
+      {name: 'Mary Johnson', img: '../images/venue/v3.jpg', newMessage: false},
+      {name: 'Peter Carlsson', img: '../images/venue/v3.jpg', newMessage: false}
     ];
 
     $scope.data = {
@@ -14,7 +14,7 @@ angular.module('app.venueController', [])
       cb5: false
     };
 
-    $scope.toggleVenueGuests = function (showId,HideId) {
+    $scope.toggleVenueGuests = function (showId, HideId) {
       $(showId).toggle(500, "swing", function () {
         $(HideId).toggle(500, "swing", function () {
 
@@ -22,25 +22,20 @@ angular.module('app.venueController', [])
       });
     };
 
-    // Get the modal
-    $scope.modal = document.getElementById('myModal');
+    $scope.vImages = [
+      {title: 'title1', src: '../images/venue/v3.jpg'},
+      {title: 'title2', src: '../images/venue/v3.jpg'},
+      {title: 'title3', src: '../images/venue/v3.jpg'}];
 
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-    $scope.img = document.getElementById('myImg');
-    $scope.modalImg = document.getElementById("img01");
-    $scope.captionText = document.getElementById("caption");
-    $scope.img.onclick = function(){
-      $scope.modal.style.display = "block";
-      $scope.modalImg.src = this.src;
-      $scope.captionText.innerHTML = this.alt;
-    };
+    $scope.Theme = [true,false];
 
-// Get the <span> element that closes the modal
-    $scope.span = document.getElementsByClassName("close")[0];
+    $scope.changeTheme = function (KeepTheme) {
 
-// When the user clicks on <span> (x), close the modal
-    $scope.span.onclick = function() {
-      $scope.modal.style.display = "none";
+      angular.forEach($scope.Theme, function(value,key){
+        $scope.Theme[key]= false;
+      });
+
+      $scope.Theme[KeepTheme] = true;
     }
 
   });
