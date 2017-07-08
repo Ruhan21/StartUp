@@ -1,6 +1,5 @@
 angular.module('app',[
   'ui.router',
-  'inputDirectives',
   'ngMaterial',
   'ngSanitize',
   'ui.bootstrap',

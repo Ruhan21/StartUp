@@ -7,12 +7,9 @@ angular.module('app.venueController', [])
       {name: 'Mary Johnson', img: '../images/venue/v3.jpg', newMessage: false},
       {name: 'Peter Carlsson', img: '../images/venue/v3.jpg', newMessage: false}
     ];
+    $scope.showVTop = true;
 
-    $scope.data = {
-      cb1: true,
-      cb4: true,
-      cb5: false
-    };
+    $scope.vImgClick = function (showId) {
 
     $scope.toggleVenueGuests = function (showId, HideId) {
       $(showId).toggle(500, "swing", function () {
@@ -22,20 +19,26 @@ angular.module('app.venueController', [])
       });
     };
 
-    $scope.vImages = [
-      {title: 'title1', src: '../images/venue/v3.jpg'},
-      {title: 'title2', src: '../images/venue/v3.jpg'},
-      {title: 'title3', src: '../images/venue/v3.jpg'}];
+      if($scope.showVTop){
+        $(showId+'1').animate({width: 'toggle'}, 800, 'easeOutBounce', function () {
+          $(showId+'2').animate({width: 'toggle'}, 800, 'easeOutBounce', function () {
+            $(showId+'3').animate({width: 'toggle'}, 800, 'easeOutBounce', function () {
+              $scope.showVTop = false;
+            });
+          });
+        });
+      } else {
+        $(showId+'3').animate({width: 'toggle'}, 500, 'easeOutBack', function () {
+          $(showId+'2').animate({width: 'toggle'}, 500, 'easeOutBack', function () {
+            $(showId+'1').animate({width: 'toggle'}, 500, 'easeOutBack', function () {
+              $scope.showVTop = true;
+            });
+          });
+        });
+      }
 
-    $scope.Theme = [true,false];
 
-    $scope.changeTheme = function (KeepTheme) {
 
-      angular.forEach($scope.Theme, function(value,key){
-        $scope.Theme[key]= false;
-      });
-
-      $scope.Theme[KeepTheme] = true;
     }
 
   });

@@ -1,44 +1,94 @@
 <div id="venue">
 
-  <div class="row">
-    <md-button ng-click="changeTheme(0)" style="font-size: 80%">Theme 1</md-button>
-    <md-button ng-click="changeTheme(1)"style="font-size: 80%">Theme 2</md-button>
-  </div>
-<pre>{{Theme}}</pre>
-  <div ng-if="Theme[0]">
-    <img class="img-responsive thumbnail" src="../images/venue/banner-3.jpg" alt="" style="width: 100%">
+  <div class="venue-intro">
+    <div class="container">
+      <div layout="row">
+        <div flex="50">
+          <div>
+            <img src="http://via.placeholder.com/500" class="img-circle venue-img-border"/>
+          </div>
+          <div id="vContacts">
+            <img src="http://via.placeholder.com/250" class="img-circle venue-img-border"/>
+          </div>
+        </div>
 
-    <div class="row">
-      <div ng-repeat="venueImg in vImages track by $index">
-        <div class="col-md-4">
-          <md-card>
-            <md-card-content>
-              <img class="img-responsive thumbnail venue-img" src="{{venueImg.src}}"/>
-            </md-card-content>
-          </md-card>
+        <div flex="50">
+
+          <div layout="row">
+            <div ng-click="vImgClick('#vTop')" style="outline: none;">
+              <img src="http://via.placeholder.com/150" class="img-circle venue-img-border top"/>
+
+              <img id="vTop1" src="http://via.placeholder.com/100" class="img-circle venue-img-border"
+                   style="display: none;"/>
+              <img id="vTop2" src="http://via.placeholder.com/100" class="img-circle venue-img-border"
+                   style="display: none;"/>
+              <img id="vTop3" src="http://via.placeholder.com/100" class="img-circle venue-img-border"
+                   style="display: none;"/>
+            </div>
+          </div>
+
+          <div layout="row">
+            <div ng-click="vImgClick('#vMid')" style="outline: none;">
+              <img src="http://via.placeholder.com/150" class="img-circle venue-img-border mid"/>
+
+              <img id="vMid1" src="http://via.placeholder.com/100" class="img-circle venue-img-border"
+                   style="display: none;"/>
+              <img id="vMid2" src="http://via.placeholder.com/100" class="img-circle venue-img-border"
+                   style="display: none;"/>
+              <img id="vMid3" src="http://via.placeholder.com/100" class="img-circle venue-img-border"
+                   style="display: none;"/>
+            </div>
+          </div>
+
+          <div layout="row">
+            <div>
+              <img src="http://via.placeholder.com/150" class="img-circle venue-img-border top"/>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="row">
-      <div class="col-md-6">
-        <md-card>
-          <md-card-content>
-            <iframe style="width: 100%; height: 345px" src="https://www.youtube.com/embed/XGSy3_Czz8k">
-            </iframe>
+  <div layout="row" class="venue-mid">
 
-          </md-card-content>
-        </md-card>
-      </div>
+  </div>
+
+  <div layout="row" class="container venue-details">
+    <div flex="33">
+      <md-card>
+        <img src="http://via.placeholder.com/350"/>
+        <md-card-content>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada rutrum elit, volutpat volutpat
+            elit
+            condimentum id.</p>
+        </md-card-content>
+      </md-card>
+    </div>
+    <div flex="33">
+      <md-card>
+        <img src="http://via.placeholder.com/350"/>
+        <md-card-content>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada rutrum elit, volutpat volutpat
+            elit
+            condimentum id.</p>
+        </md-card-content>
+      </md-card>
+    </div>
+
+    <div flex="33">
+      <md-card>
+        <img src="http://via.placeholder.com/350"/>
+        <md-card-content>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada rutrum elit, volutpat volutpat
+            elit
+            condimentum id.</p>
+        </md-card-content>
+      </md-card>
     </div>
   </div>
-
-  <div ng-if="Theme[1]">
-      Heloo
-  </div>
-  <div class="btn btn-primary venue-button" ng-click="toggleVenueGuests('#venue','#guests')">Guests</div>
 </div>
-
 <!--///////////////////////////////////////////////////Guests///////////////////////////////////////////////-->
 
 <div id="guests" class="container" style="display: none">

@@ -1,89 +1,91 @@
-<div layout="row">
-  <div flex="100">
-    <md-card>
-      <md-card-title>
-        <md-card-title-text>
-          <span class="md-headline"><md-button style="font-size: 80%">Budget forecast</md-button></span>
-        </md-card-title-text>
-      </md-card-title>
-      <md-card-content>
+<div class="container">
+  <div layout="row">
+    <div flex="100">
+      <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline"><md-button style="font-size: 80%">Budget forecast</md-button></span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
 
-        <div layout-gt-md="row" layout="column" layout-padding layout-align-gt-md="space-around center">
-          <div flex-gt-md="60" flex="100">
-            <canvas id="line" class="chart chart-line" chart-data="data"
-                    chart-labels="labels" chart-series="series" chart-options="options"
-                    chart-dataset-override="datasetOverride" chart-click="onClick">
-            </canvas>
+          <div layout-gt-md="row" layout="column" layout-padding layout-align-gt-md="space-around center">
+            <div flex-gt-md="60" flex="100">
+              <canvas id="line" class="chart chart-line" chart-data="data"
+                      chart-labels="labels" chart-series="series" chart-options="options"
+                      chart-dataset-override="datasetOverride" chart-click="onClick">
+              </canvas>
+            </div>
+
+            <div flex-gt-md="40" flex="100">
+              <md-card-title-text>
+                <span class="md-headline"><md-button style="font-size: 80%">Budget income</md-button></span>
+              </md-card-title-text>
+
+              <div ng-include src="'views/budget/incomeTable.html'"></div>
+
+              <md-card-title-text>
+                <span class="md-headline"><md-button style="font-size: 80%">Budget expenses</md-button></span>
+              </md-card-title-text>
+
+              <div ng-include src="'views/budget/incomeTable.html'"></div>
+            </div>
+
           </div>
 
-          <div flex-gt-md="40" flex="100">
-            <md-card-title-text>
-              <span class="md-headline"><md-button style="font-size: 80%">Budget income</md-button></span>
-            </md-card-title-text>
 
-            <div ng-include src="'views/budget/incomeTable.html'"></div>
+          <hr>
 
-            <md-card-title-text>
-              <span class="md-headline"><md-button style="font-size: 80%">Budget expenses</md-button></span>
-            </md-card-title-text>
+          <md-card-title-text>
+            <span class="md-headline"><md-button style="font-size: 80%">Budget target</md-button></span>
+          </md-card-title-text>
 
-            <div ng-include src="'views/budget/incomeTable.html'"></div>
+          <div ng-include src="'views/budget/targetTable.html'"></div>
+
+          <hr>
+
+          <div layout-gt-sm="row" layout="column" layout-padding layout-align-gt-sm="center center">
+            <div flex-gt-sm="40" flex="100">
+              <md-card-title-text>
+                <span class="md-headline"><md-button style="font-size: 80%">Expenses Overview</md-button></span>
+              </md-card-title-text>
+
+              <canvas id="doughnut" class="chart chart-doughnut" chart-options="optionsDoughnut"
+                      chart-data="dataDoughnut" chart-labels="labelsDoughnut">
+              </canvas>
+            </div>
+
+            <div flex-gt-sm="60" flex="100">
+              <div ng-include src="'views/budget/incomeTable.html'"></div>
+              <div ng-include src="'views/budget/incomeTable.html'"></div>
+              <div ng-include src="'views/budget/incomeTable.html'"></div>
+              <div ng-include src="'views/budget/incomeTable.html'"></div>
+              <div ng-include src="'views/budget/incomeTable.html'"></div>
+              <div ng-include src="'views/budget/incomeTable.html'"></div>
+            </div>
           </div>
 
-        </div>
-
-
-        <hr>
-
-        <md-card-title-text>
-          <span class="md-headline"><md-button style="font-size: 80%">Budget target</md-button></span>
-        </md-card-title-text>
-
-        <div ng-include src="'views/budget/targetTable.html'"></div>
-
-        <hr>
-
-        <div layout-gt-sm="row" layout="column" layout-padding layout-align-gt-sm="center center">
-          <div flex-gt-sm="40" flex="100">
-            <md-card-title-text>
-              <span class="md-headline"><md-button style="font-size: 80%">Expenses Overview</md-button></span>
-            </md-card-title-text>
-
-            <canvas id="doughnut" class="chart chart-doughnut" chart-options="optionsDoughnut"
-                    chart-data="dataDoughnut" chart-labels="labelsDoughnut">
-            </canvas>
-          </div>
-
-          <div flex-gt-sm="60" flex="100">
-            <div ng-include src="'views/budget/incomeTable.html'"></div>
-            <div ng-include src="'views/budget/incomeTable.html'"></div>
-            <div ng-include src="'views/budget/incomeTable.html'"></div>
-            <div ng-include src="'views/budget/incomeTable.html'"></div>
-            <div ng-include src="'views/budget/incomeTable.html'"></div>
-            <div ng-include src="'views/budget/incomeTable.html'"></div>
-          </div>
-        </div>
-
-      </md-card-content>
-    </md-card>
+        </md-card-content>
+      </md-card>
+    </div>
   </div>
-</div>
 
-<div layout-gt-sm="row" layout="column">
-  <div flex="100">
-    <md-card>
-      <md-card-title>
-        <md-card-title-text>
-          <span class="md-headline"><md-button style="font-size: 80%">Budget income</md-button></span>
-        </md-card-title-text>
-      </md-card-title>
-      <md-card-content>
-
-
-        <div ng-include src="'views/budget/incomeEdit.html'"></div>
+  <div layout-gt-sm="row" layout="column">
+    <div flex="100">
+      <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline"><md-button style="font-size: 80%">Budget income</md-button></span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
 
 
-      </md-card-content>
-    </md-card>
+          <div ng-include src="'views/budget/incomeEdit.html'"></div>
+
+
+        </md-card-content>
+      </md-card>
+    </div>
   </div>
 </div>
