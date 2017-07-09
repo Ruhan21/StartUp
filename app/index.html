@@ -59,34 +59,34 @@
 <div class="container">
   <header ng-controller="HeaderCtrl">
 
-      <div class="lock-size" layout="row" layout-align="start center" >
-        <md-fab-speed-dial md-open="isOpen" md-direction="{{selectedDirection}}"
-                           ng-class="selectedMode">
-          <md-fab-trigger>
-            <md-button aria-label="menu" class="md-fab md-warn">
-              <md-icon><span class="glyphicon glyphicon-align-justify"></span></md-icon>
-            </md-button>
-          </md-fab-trigger>
+      <!--<div class="lock-size" layout="row" layout-align="start center" >-->
+        <!--<md-fab-speed-dial md-open="isOpen" md-direction="{{selectedDirection}}"-->
+                           <!--ng-class="selectedMode">-->
+          <!--<md-fab-trigger>-->
+            <!--<md-button aria-label="menu" class="md-fab md-warn">-->
+              <!--<md-icon><span class="glyphicon glyphicon-align-justify"></span></md-icon>-->
+            <!--</md-button>-->
+          <!--</md-fab-trigger>-->
 
-          <md-fab-actions>
-            <md-button data-ui-sref="intro" name="into" class="md-fab md-raised md-mini">
-              <md-icon><span class="glyphicon glyphicon-home"></span></md-icon>
-            </md-button>
-            <md-button data-ui-sref="about" name="about"
-                       class="md-fab md-raised md-mini">
-              <md-icon><span class="glyphicon glyphicon-heart"></span></md-icon>
-            </md-button>
-            <md-button data-ui-sref="admin" name="admin"
-                       class="md-fab md-raised md-mini">
-              <md-icon><span class="glyphicon glyphicon-list-alt"></span></md-icon>
-            </md-button>
-            <md-button data-ui-sref="budget" name="budget"
-                       class="md-fab md-raised md-mini">
-              <md-icon><span class="glyphicon glyphicon-list-alt"></span></md-icon>
-            </md-button>
-          </md-fab-actions>
-        </md-fab-speed-dial>
-      </div>
+          <!--<md-fab-actions>-->
+            <!--<md-button data-ui-sref="intro" name="into" class="md-fab md-raised md-mini">-->
+              <!--<md-icon><span class="glyphicon glyphicon-home"></span></md-icon>-->
+            <!--</md-button>-->
+            <!--<md-button data-ui-sref="about" name="about"-->
+                       <!--class="md-fab md-raised md-mini">-->
+              <!--<md-icon><span class="glyphicon glyphicon-heart"></span></md-icon>-->
+            <!--</md-button>-->
+            <!--<md-button data-ui-sref="admin" name="admin"-->
+                       <!--class="md-fab md-raised md-mini">-->
+              <!--<md-icon><span class="glyphicon glyphicon-list-alt"></span></md-icon>-->
+            <!--</md-button>-->
+            <!--<md-button data-ui-sref="budget" name="budget"-->
+                       <!--class="md-fab md-raised md-mini">-->
+              <!--<md-icon><span class="glyphicon glyphicon-list-alt"></span></md-icon>-->
+            <!--</md-button>-->
+          <!--</md-fab-actions>-->
+        <!--</md-fab-speed-dial>-->
+      <!--</div>-->
 
       <div hide-xs show-gt-xs>
         <div ng-cloak>
@@ -119,6 +119,10 @@
 </div>
 
 <div ui-view>
+</div>
+
+<div layout="row" class="session-mid">
+
 </div>
 
 <!--<div ui-view></div>-->

@@ -1,34 +1,72 @@
 angular.module('app.aboutController', [])
 
   .controller('AboutCtrl', function ($scope, $timeout, $state) {
-    // $scope.play = function() {
-    //   $scope.animate = !$scope.animate;
-    // };
 
 
-    $scope.p1 = false;
-    $scope.p2 = false;
+    $scope.centerImageVisable = false;
 
-    (function () {
-
-      $timeout(function () {
-        $scope.p1 = true;
-      }, 1000);
-
-      $timeout(function () {
-        $scope.p2 = true;
-      }, 2000);
-
-    }());
-
-    $scope.onSwipeLeft = function() {
-      console.log('heloo');
-      $state.go('about');
+    $scope.centerImg = function () {
+      $('#aboutTopLeft').animate({marginLeft: '54%', zIndex: '0'}, 1500, 'easeOutBack');
+      $('#aboutBottomRight').animate({marginRight: '54%', zIndex: '0'}, 1500, 'easeOutBack', function () {
+        $timeout(function () {
+          $scope.centerImageVisable = true;
+          $timeout(function () {
+            $('#aboutCenter').animate({opacity: '1'}, 800, 'easeOutBack');
+            $timeout(function () {
+              $scope.expandImages();
+            },500);
+          }, 0);
+        }, 0);
+      });
     };
 
-    // $scope.onSwipeRight = function(){
-    //   console.log('heloo');
-    //   $state.go('about');
-    // }
+    $scope.expandImages = function () {
+      $('#imgPrevious').animate({marginLeft: '0'}, 600, 'easeOutBack', function () {
+        $('#imgNext').animate({marginLeft: '0'}, 600, 'easeOutBack');
+      });
+    };
+
+    $scope.imgClass = [{class: 'normal'}, {class: 'normal'}, {class: 'normal'}];
+
+    $scope.imgClick = function (type) {
+
+      if (type === 'next') {
+        $scope.imgClass[2].class = 'clicked';
+        $timeout(function () {
+          $scope.imgClass[2].class = 'normal';
+
+          $scope.imgClass[1].class = 'clicked';
+          $timeout(function () {
+            $scope.imgClass[1].class = 'normal';
+
+            $scope.imgClass[0].class = 'clicked';
+            $timeout(function () {
+              $scope.imgClass[0].class = 'normal';
+            }, 300)
+
+          }, 300)
+
+        }, 300)
+      } else {
+        $scope.imgClass[0].class = 'clicked';
+        $timeout(function () {
+          $scope.imgClass[0].class = 'normal';
+
+          $scope.imgClass[1].class = 'clicked';
+          $timeout(function () {
+            $scope.imgClass[1].class = 'normal';
+
+            $scope.imgClass[2].class = 'clicked';
+            $timeout(function () {
+              $scope.imgClass[2].class = 'normal';
+            }, 300)
+
+          }, 300)
+
+        }, 300)
+      }
+
+
+    }
 
   });
