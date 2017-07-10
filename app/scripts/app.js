@@ -67,7 +67,7 @@ angular.module('app',[
 
       .state('venue', {
         url: '/venue',
-        templateUrl: 'views/venue.html',
+        templateUrl: 'views/venue/venue.html',
         controller: 'VenueCtrl',
         data: {
           requireLogin: false

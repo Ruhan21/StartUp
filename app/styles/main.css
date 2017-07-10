@@ -388,7 +388,7 @@ tfoot td {
 
 .about-img.middle{
   position: relative;
-  opacity: 0;
+  opacity: 1;
   z-index: 1;
 }
 
@@ -460,11 +460,11 @@ md-dialog{
 }
 
 .venue-img-border.top{
-  margin-left: -215px;
+  margin-left: 215px;
 }
 
 .venue-img-border.mid{
-  margin-left: -160px;
+  margin-left: 160px;
 }
 
 .venue-intro {
@@ -506,8 +506,8 @@ md-dialog{
 }
 
 #vContacts {
-  margin-top: -179px;
+  margin-top: 100px;
 
-  -webkit-transition:all linear 1s;
-  transition:all linear 1s;
+  /*-webkit-transition:all linear 1s;*/
+  /*transition:all linear 1s;*/
 }

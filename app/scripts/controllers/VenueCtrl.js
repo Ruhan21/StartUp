@@ -2,6 +2,13 @@ angular.module('app.venueController', [])
 
   .controller('VenueCtrl', function ($scope, $state) {
 
+    $().ready(function () {
+      $("#vContacts").animate({marginTop: '-179px'}, 1000, 'easeOutBounce');
+      $("#vTop").animate({marginLeft: '-215px'}, 1300, 'easeOutBounce');
+      $("#vMid").animate({marginLeft: '-160px'}, 1100, 'easeOutBounce');
+      $("#vBottom").animate({marginLeft: '-215px'}, 1000, 'easeOutBounce');
+    });
+
     $scope.people = [
       {name: 'Janet Perkins', img: '../images/venue/v3.jpg', newMessage: true},
       {name: 'Mary Johnson', img: '../images/venue/v3.jpg', newMessage: false},
@@ -46,6 +53,10 @@ angular.module('app.venueController', [])
           $scope.optionGoogle = !$scope.optionGoogle;
           break;
       }
+    }
+
+    var doAnimate = function (id) {
+      $("#vContacts").animate({marginTop: '-179px'}, 1000, 'easeOutBounce');
     }
 
   });
