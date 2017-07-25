@@ -56,45 +56,18 @@
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body ng-app="app" class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
-<div class="container">
-  <header ng-controller="HeaderCtrl">
+<header ng-controller="HeaderCtrl">
 
-      <!--<div class="lock-size" layout="row" layout-align="start center" >-->
-        <!--<md-fab-speed-dial md-open="isOpen" md-direction="{{selectedDirection}}"-->
-                           <!--ng-class="selectedMode">-->
-          <!--<md-fab-trigger>-->
-            <!--<md-button aria-label="menu" class="md-fab md-warn">-->
-              <!--<md-icon><span class="glyphicon glyphicon-align-justify"></span></md-icon>-->
-            <!--</md-button>-->
-          <!--</md-fab-trigger>-->
+  <div hide-xs show-gt-xs>
+    <div ng-cloak>
+      <md-content class="md-padding">
+        <div flex>
 
-          <!--<md-fab-actions>-->
-            <!--<md-button data-ui-sref="intro" name="into" class="md-fab md-raised md-mini">-->
-              <!--<md-icon><span class="glyphicon glyphicon-home"></span></md-icon>-->
-            <!--</md-button>-->
-            <!--<md-button data-ui-sref="about" name="about"-->
-                       <!--class="md-fab md-raised md-mini">-->
-              <!--<md-icon><span class="glyphicon glyphicon-heart"></span></md-icon>-->
-            <!--</md-button>-->
-            <!--<md-button data-ui-sref="admin" name="admin"-->
-                       <!--class="md-fab md-raised md-mini">-->
-              <!--<md-icon><span class="glyphicon glyphicon-list-alt"></span></md-icon>-->
-            <!--</md-button>-->
-            <!--<md-button data-ui-sref="budget" name="budget"-->
-                       <!--class="md-fab md-raised md-mini">-->
-              <!--<md-icon><span class="glyphicon glyphicon-list-alt"></span></md-icon>-->
-            <!--</md-button>-->
-          <!--</md-fab-actions>-->
-        <!--</md-fab-speed-dial>-->
-      <!--</div>-->
-
-      <div hide-xs show-gt-xs>
-        <div ng-cloak>
-          <md-content class="md-padding">
-            <div flex>
-              <md-nav-bar
-                md-selected-nav-item="currentNavItem"
-                nav-bar-aria-label="navigation links">
+          <md-nav-bar
+            md-selected-nav-item="currentNavItem"
+            nav-bar-aria-label="navigation links">
+            <div class="container">
+              <div layout="row">
                 <md-nav-item md-nav-sref="intro" name="into">
                   Home
                 </md-nav-item>
@@ -105,18 +78,19 @@
                   Venue & Guests
                 </md-nav-item>
                 <md-nav-item md-nav-sref="admin" name="admin">
-                  Admin
+                  Dashboard
                 </md-nav-item>
                 <md-nav-item md-nav-sref="budget" name="budget">
                   Budget
                 </md-nav-item>
-              </md-nav-bar>
+              </div>
             </div>
-          </md-content>
+          </md-nav-bar>
         </div>
-      </div>
-  </header>
-</div>
+      </md-content>
+    </div>
+  </div>
+</header>
 
 <div ui-view>
 </div>
@@ -154,7 +128,6 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-
 
 
 <!-- build:js scripts/main.min.js -->

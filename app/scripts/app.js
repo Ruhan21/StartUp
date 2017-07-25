@@ -49,7 +49,7 @@ angular.module('app',[
 
       .state('admin', {
         url: '/admin',
-        templateUrl: 'views/admin.html',
+        templateUrl: 'views/admin/admin.html',
         controller: 'AdminCtrl',
         data: {
           requireLogin: false
@@ -67,7 +67,7 @@ angular.module('app',[
 
       .state('venue', {
         url: '/venue',
-        templateUrl: 'views/venue.html',
+        templateUrl: 'views/venue/venue.html',
         controller: 'VenueCtrl',
         data: {
           requireLogin: false

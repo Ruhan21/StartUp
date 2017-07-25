@@ -511,3 +511,10 @@ md-dialog{
   -webkit-transition:all linear 1s;
   transition:all linear 1s;
 }
+
+/*/////// Dashboard///////////////*/
+
+.dashboard-item {
+  margin-left: 15px;
+  margin-right: 15px;
+}
