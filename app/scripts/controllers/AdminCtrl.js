@@ -2,80 +2,162 @@ angular.module('app.adminController', [])
 
   .controller('AdminCtrl', function ($scope,$timeout, $mdDialog) {
 
-    $scope.oneAtATime = true;
+    ///////////////////////////////main graphs///////////////////////////////////
 
-    $scope.groups = [
+    /////////////forecast//////////////////////////////////////////
+
+    $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+    $scope.series = ['Series A', 'Series B'];
+    $scope.data = [
+      [65, 59, 80, 81, 56, 55, 40],
+      [28, 48, 40, 19, 86, 27, 90]
+    ];
+    $scope.onClick = function (points, evt) {
+      console.log(points, evt);
+    };
+    $scope.datasetOverride = [{yAxisID: 'y-axis-1'}, {yAxisID: 'y-axis-2'}];
+    $scope.options = {
+      scales: {
+        yAxes: [
+          {
+            id: 'y-axis-1',
+            type: 'linear',
+            display: true,
+            position: 'left'
+          },
+          {
+            id: 'y-axis-2',
+            type: 'linear',
+            display: true,
+            position: 'right'
+          }
+        ]
+      }
+    };
+
+    /////////////////////Doughnut//////////////////////
+
+    $scope.labelsDoughnut = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
+    $scope.dataDoughnut = [300, 500, 100];
+    $scope.optionsDoughnut = {
+      legend: {
+        display: false,
+        position: "right",
+        labels: {
+          fontColor: 'rgb(255, 99, 132)'
+        }
+      }
+    };
+
+    /////////////////////Pie//////////////////////
+
+    $scope.labelsPie = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
+    $scope.dataPie = [300, 500, 100];
+    $scope.optionsPie = {
+      legend: {
+        display: true,
+        position: "right",
+        labels: {
+          fontColor: 'rgb(255, 99, 132)'
+        }
+      }
+    };
+
+    /////////////////Bar chart///////////////////////////
+
+    $scope.labelsBar = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+    $scope.seriesBar = ['Series A', 'Series B' ,'Series C'];
+
+    $scope.dataBar = [
+      [65, 59, 80, 81, 56, 55, 40],
+      [28, 48, 40, 19, 86, 27, 90],
+      [66, 64, 71, 45, 35, 75, 44]
+    ];
+
+    $scope.optionsBar = {
+      legend: {
+        display: true,
+        position: "bottom",
+        labels: {
+          fontColor: 'rgb(255, 99, 132)'
+        }
+      }
+    };
+
+
+    /////////////////////GuestList//////////////////////////
+
+    var imagePath = 'img/list/60.jpeg';
+
+    $scope.phones = [
       {
-        title: 'Dynamic Group Header - 1',
-        content: 'Dynamic Group Body - 1'
+        type: 'Home',
+        number: '(555) 251-1234',
+        options: {
+          icon: 'communication:phone'
+        }
       },
       {
-        title: 'Dynamic Group Header - 2',
-        content: 'Dynamic Group Body - 2'
-      }
-    ];
-
-
-    $scope.status = {
-      isCustomHeaderOpen: false,
-      isFirstOpen: true,
-      isFirstDisabled: false
-    };
-
-    ///////////////Modal//////////////////////
-    $scope.newItem = {};
-
-    $scope.modalPrompt = function(row,type) {
-      $mdDialog.show({
-        controller: DialogController,
-        templateUrl: 'views/admin/stationary/modal.html',
-        locals : {
-          row : row
+        type: 'Cell',
+        number: '(555) 786-9841',
+        options: {
+          icon: 'communication:phone',
+          avatarIcon: true
         }
-      })
-        .then(function(answer) {
-
-          if(type === "add")
-          {
-            $scope.rowCollection.push(answer);
-          }
-        });
-    };
-
-    function DialogController($scope, $mdDialog , row) {
-
-      $scope.item = row;
-
-      $scope.hide = function() {
-        $mdDialog.hide();
-      };
-
-      $scope.cancel = function() {
-        $mdDialog.cancel();
-      };
-
-      $scope.answer = function(answer) {
-        $mdDialog.hide(answer);
-      };
-    }
-
-    /////////////////Smart Table/////////////////
-
-    $scope.rowCollection = [
-      {firstName: 'Laurent', lastName: 'Renard', birthDate: new Date('1987-05-21'), balance: 102, email: 'whatever@gmail.com'},
-      {firstName: 'Blandine', lastName: 'Faivre', birthDate: new Date('1987-04-25'), balance: -2323.22, email: 'oufblandou@gmail.com'},
-      {firstName: 'Francoise', lastName: 'Frere', birthDate: new Date('1955-08-27'), balance: 42343, email: 'raymondef@gmail.com'}
-    ];
-
-    //$scope.displayedCollection = [].concat($scope.rowCollection); //have to do this because the data gets assigned asynchronously .  with time delay this is not needed.
-
-    //remove to the real data holder
-    $scope.removeItem = function removeItem(row) {
-      var index = $scope.rowCollection.indexOf(row);
-      if (index !== -1) {
-        $scope.rowCollection.splice(index, 1);
+      },
+      {
+        type: 'Office',
+        number: '(555) 314-1592',
+        options: {
+          face : imagePath
+        }
+      },
+      {
+        type: 'Offset',
+        number: '(555) 192-2010',
+        options: {
+          offset: true,
+          actionIcon: 'communication:phone'
+        }
       }
-    }
+    ];
+    $scope.todos = [
+      {
+        face : imagePath,
+        what: 'Brunch this weekend?',
+        who: 'Min Li Chan',
+        when: '3:08PM',
+        notes: " I'll be in your neighborhood doing errands"
+      },
+      {
+        face : imagePath,
+        what: 'Brunch this weekend?',
+        who: 'Min Li Chan',
+        when: '3:08PM',
+        notes: " I'll be in your neighborhood doing errands"
+      },
+      {
+        face : imagePath,
+        what: 'Brunch this weekend?',
+        who: 'Min Li Chan',
+        when: '3:08PM',
+        notes: " I'll be in your neighborhood doing errands"
+      },
+      {
+        face : imagePath,
+        what: 'Brunch this weekend?',
+        who: 'Min Li Chan',
+        when: '3:08PM',
+        notes: " I'll be in your neighborhood doing errands"
+      },
+      {
+        face : imagePath,
+        what: 'Brunch this weekend?',
+        who: 'Min Li Chan',
+        when: '3:08PM',
+        notes: " I'll be in your neighborhood doing errands"
+      },
+    ];
 
   })
 
