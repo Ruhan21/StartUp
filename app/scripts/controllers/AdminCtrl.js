@@ -2,6 +2,12 @@ angular.module('app.adminController', [])
 
   .controller('AdminCtrl', function ($scope,$timeout, $mdDialog) {
 
+    $scope.clickNavItem = function (id) {
+      $scope.navItemButtons = {navOverview: false, navIncome:false, navExpenses:false, navGuests:false}
+      $scope.navItemButtons[id] = !$scope.navItemButtons[id]
+    }
+
+
     ///////////////////////////////main graphs///////////////////////////////////
 
     /////////////forecast//////////////////////////////////////////
