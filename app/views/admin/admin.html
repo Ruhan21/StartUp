@@ -1,10 +1,41 @@
 <div layout="column" style=" height:100vh;" ng-cloak>
-  <section layout="row" flex>
 
+  <!--///////////////////////////////////////////////Mobile/////////////////////////////////-->
+  <div hide-gt-md>
+    <div style="background-color: rgb(63,81,181);color: rgba(255,255,255,0.87); min-height: 40px;">
+      <span data-toggle="collapse" data-target="#dashMenuMobile" aria-expanded="false" class="glyphicon glyphicon-align-justify" style="float: right; font-size: 28px; padding: 5px"></span>
+    </div>
+
+    <div class="container">
+      <div id="dashMenuMobile" class="row collapse">
+
+        <div ng-click="clickNavItem('navOverviewMobile')" ng-class="{'selected-nav': navItemButtons.navOverviewMobile}" id="navOverviewMobile" class="col-md-12 side-nav-button">
+          Overview <span class="pull-right glyphicon glyphicon-home"></span>
+        </div>
+
+        <div ng-click="clickNavItem('navIncomeMobile')" ng-class="{'selected-nav': navItemButtons.navIncomeMobile}" id="navIncomeMobile" class="col-md-12 side-nav-button">
+          Income <span class="pull-right glyphicon glyphicon-home"></span>
+        </div>
+
+        <div ng-click="clickNavItem('navExpensesMobile')" ng-class="{'selected-nav': navItemButtons.navExpensesMobile}" id="navExpensesMobile"class="col-md-12 side-nav-button">
+          Expenses <span class="pull-right glyphicon glyphicon-home"></span>
+        </div>
+
+        <div ng-click="clickNavItem('navGuestsMobile')" ng-class="{'selected-nav': navItemButtons.navGuestsMobile}" id="navGuestsMobile" class="col-md-12 side-nav-button">
+          Guests <span class="pull-right glyphicon glyphicon-home"></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!--/////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+  <section layout="row" flex>
     <md-sidenav
       class="md-sidenav-left"
       md-component-id="left"
-      md-is-locked-open="$mdMedia('gt-md')"
+      md-is-locked-open= "$mdMedia('gt-md')"
       md-whiteframe="4">
 
       <md-toolbar class="md-theme-indigo">

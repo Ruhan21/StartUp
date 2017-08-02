@@ -3,8 +3,9 @@ angular.module('app.adminController', [])
   .controller('AdminCtrl', function ($scope,$timeout, $mdDialog) {
 
     $scope.clickNavItem = function (id) {
-      $scope.navItemButtons = {navOverview: false, navIncome:false, navExpenses:false, navGuests:false}
+      $scope.navItemButtons = {navOverview: false, navIncome:false, navExpenses:false, navGuests:false,navOverviewMobile: false, navIncomeMobile:false, navExpensesMobile:false, navGuestsMobile:false}
       $scope.navItemButtons[id] = !$scope.navItemButtons[id]
+
     }
 
 
@@ -172,9 +173,9 @@ angular.module('app.adminController', [])
       // Component lookup should always be available since we are not using `ng-if`
       $mdSidenav('left').close()
         .then(function () {
-          $log.debug("close LEFT is done");
-        });
+          $log.debug('close LEFT is done')
+        })
 
-    };
+    }
   });
 
