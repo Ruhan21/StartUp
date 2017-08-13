@@ -9,19 +9,19 @@
     <div class="container">
       <div id="dashMenuMobile" class="row collapse">
 
-        <div ng-click="clickNavItem('navOverview')" ng-class="{'selected-nav': navItemButtons.navOverviewMobile}" id="navOverviewMobile" class="col-md-12 side-nav-button">
+        <div data-toggle="collapse" data-target="#dashMenuMobile" ng-click="clickNavItem('navOverview')" ng-class="{'selected-nav': navItemButtons.navOverviewMobile}" id="navOverviewMobile" class="col-md-12 side-nav-button">
           Overview <span class="pull-right glyphicon glyphicon-home"></span>
         </div>
 
-        <div ng-click="clickNavItem('navIncome')" ng-class="{'selected-nav': navItemButtons.navIncomeMobile}" id="navIncomeMobile" class="col-md-12 side-nav-button">
+        <div data-toggle="collapse" data-target="#dashMenuMobile" ng-click="clickNavItem('navIncome')" ng-class="{'selected-nav': navItemButtons.navIncomeMobile}" id="navIncomeMobile" class="col-md-12 side-nav-button">
           Income <span class="pull-right glyphicon glyphicon-home"></span>
         </div>
 
-        <div ng-click="clickNavItem('navExpenses')" ng-class="{'selected-nav': navItemButtons.navExpensesMobile}" id="navExpensesMobile"class="col-md-12 side-nav-button">
+        <div data-toggle="collapse" data-target="#dashMenuMobile" ng-click="clickNavItem('navExpenses')" ng-class="{'selected-nav': navItemButtons.navExpensesMobile}" id="navExpensesMobile"class="col-md-12 side-nav-button">
           Expenses <span class="pull-right glyphicon glyphicon-home"></span>
         </div>
 
-        <div ng-click="clickNavItem('navGuests')" ng-class="{'selected-nav': navItemButtons.navGuestsMobile}" id="navGuestsMobile" class="col-md-12 side-nav-button">
+        <div data-toggle="collapse" data-target="#dashMenuMobile"  ng-click="clickNavItem('navGuests')" ng-class="{'selected-nav': navItemButtons.navGuestsMobile}" id="navGuestsMobile" class="col-md-12 side-nav-button">
           Guests <span class="pull-right glyphicon glyphicon-home"></span>
         </div>
       </div>
@@ -50,15 +50,15 @@
           </div>
 
           <div ng-click="clickNavItem('navIncome')" ng-class="{'selected-nav': navItemButtons.navIncome}" id="navIncome" class="col-md-12 side-nav-button">
-            Income <span class="pull-right glyphicon glyphicon-home"></span>
+            Income <span class="pull-right glyphicon glyphicon-usd"></span>
           </div>
 
           <div ng-click="clickNavItem('navExpenses')" ng-class="{'selected-nav': navItemButtons.navExpenses}" id="navExpenses"class="col-md-12 side-nav-button">
-            Expenses <span class="pull-right glyphicon glyphicon-home"></span>
+            Expenses <span class="pull-right glyphicon glyphicon-tag"></span>
           </div>
 
           <div ng-click="clickNavItem('navGuests')" ng-class="{'selected-nav': navItemButtons.navGuests}" id="navGuests" class="col-md-12 side-nav-button">
-            Guests <span class="pull-right glyphicon glyphicon-home"></span>
+            Guests <span class="pull-right glyphicon glyphicon-user"></span>
           </div>
         </div>
 
