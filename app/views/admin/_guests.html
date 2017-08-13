@@ -1,0 +1,84 @@
+<div ng-controller="GuestsCtrl">
+  <md-card>
+
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline"><md-button style="font-size: 80%">Add new guest</md-button></span>
+      </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+      <form>
+        <div class="form-group">
+          <label for="exampleSelect1">Expense type</label>
+          <select class="form-control" id="exampleSelect1" ng-model="newItem.type"
+                  ng-options="item for item in expenseOptions">
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="Name">Name</label>
+          <input type="text" ng-model="newItem.description" class="form-control" id="Name">
+        </div>
+
+        <div class="form-group">
+          <label for="Surname">Surname</label>
+          <input type="text" ng-model="newItem.description" class="form-control" id="Surname">
+        </div>
+
+        <button type="submit" ng-click="addItem()" class="btn btn-primary pull-right">Submit</button>
+      </form>
+    </md-card-content>
+  </md-card>
+
+  <div class="table-mobile">
+    <md-card>
+
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline"><md-button style="font-size: 80%">Guest list</md-button></span>
+        </md-card-title-text>
+      </md-card-title>
+
+      <md-card-content>
+
+        <table class="table table-sm table-striped table-hover">
+          <input ng-model="searchInput" type="text" class="form-control" id="search" placeholder="Search">
+          <thead>
+          <tr>
+            <th style="width:10%">#</th>
+            <th style="width:20%">Type</th>
+            <th style="width:20%">Name</th>
+            <th style="width:20%">Surname</th>
+            <th style="width:20%">Going</th>
+            <th style="width:10%">Remove</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="item in guestsTable | filter: searchFilter(searchInput)">
+            <td style="width:10%">{{$index}}</td>
+            <td style="width:20%"><select class="table-input" ng-model="item.type" ng-options="item for item in guestsOptions"></select></td>
+            <td style="width:20%"><input class="table-input" type="text" ng-model="item.name"></td>
+            <td style="width:20%"><input class="table-input" type="text" ng-model="item.surname"></td>
+            <td style="width:20%"><input type="checkbox" value="" ng-model="item.going"></td>
+            <td style="width:10%">
+              <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><strong>Total guests going</strong></td>
+            <td><strong>{{totalGuestsGoing()}}</strong></td>
+            <td></td>
+          </tr>
+          </tbody>
+        </table>
+
+      </md-card-content>
+
+    </md-card>
+  </div>
+
+</div>

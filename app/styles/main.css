@@ -537,3 +537,13 @@ md-dialog{
   font-weight: bold;
 
 }
+
+.table-input{
+  border:none;
+  background-color: transparent;
+}
+
+.table-mobile {
+  min-width: 500px;
+  overflow-x: hidden;
+}
