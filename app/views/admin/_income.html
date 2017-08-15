@@ -60,7 +60,7 @@
             <td><input class="table-input" type="text" ng-model="income.description"></td>
             <td>R <input class="table-input" type="number" ng-model="income.amount"></td>
             <td>
-              <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+              <button ng-click="removeItem($index)" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
             </td>
           </tr>
           <tr>

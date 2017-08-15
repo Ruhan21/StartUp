@@ -10,9 +10,12 @@
       <form>
         <div class="form-group">
           <label for="exampleSelect1">Expense type</label>
-          <select class="form-control" id="exampleSelect1" ng-model="newItem.type"
-                  ng-options="item for item in expenseOptions">
-          </select>
+          <div class="input-group">
+            <select class="form-control" id="exampleSelect1" ng-model="newItem.type"
+                    ng-options="item for item in expenseOptions">
+            </select>
+            <span class="input-group-addon" id="basic-addon2">add new type</span>
+          </div>
         </div>
 
         <div class="form-group">
@@ -69,7 +72,7 @@
             <td style="width:20%">R <input style="width:90%" class="table-input" type="number" ng-model="item.amount"></td>
             <td style="width:15%"><input class="table-input" type="number" ng-model="item.quantity"></td>
             <td style="width:10%">
-              <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+              <button ng-click="removeItem($index)" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
             </td>
           </tr>
           <tr>

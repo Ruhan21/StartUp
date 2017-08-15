@@ -212,8 +212,8 @@ angular.module('app.adminController', [])
       $scope.incomeTable.push($scope.newItem)
     };
 
-    $scope.removeItem = function(item){
-
+    $scope.removeItem = function(index){
+      $scope.incomeTable.splice(index,1)
     };
 
     $scope.searchFilter = function (input) {
@@ -244,8 +244,8 @@ angular.module('app.adminController', [])
       $scope.expenseTable.push($scope.newItem)
     };
 
-    $scope.removeItem = function(item){
-
+    $scope.removeItem = function(index){
+      $scope.expenseTable.splice(index,1)
     };
 
     $scope.searchFilter = function (input) {
@@ -280,8 +280,8 @@ angular.module('app.adminController', [])
       $scope.guestsTable.push($scope.newItem)
     };
 
-    $scope.removeItem = function(item){
-
+    $scope.removeItem = function(index){
+      $scope.guestsTable.splice(index,1)
     };
 
     $scope.searchFilter = function (input) {
