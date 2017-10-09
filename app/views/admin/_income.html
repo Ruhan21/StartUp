@@ -55,12 +55,12 @@
           <tbody>
           <tr ng-repeat="income in incomeTable | filter: searchFilter(searchInput)">
             <td>{{$index}}</td>
-            <td><select class="table-input" ng-model="income.type" ng-options="item for item in incomeOptions"></select>
+            <td><select ng-change="incomeTable.$save(income)" class="table-input" ng-model="income.type" ng-options="item for item in incomeOptions"></select>
             </td>
-            <td><input class="table-input" type="text" ng-model="income.description"></td>
-            <td>R <input class="table-input" type="number" ng-model="income.amount"></td>
+            <td><input ng-change="incomeTable.$save(income)" class="table-input" type="text" ng-model="income.description"></td>
+            <td>R <input ng-change="incomeTable.$save(income)" class="table-input" type="number" ng-model="income.amount"></td>
             <td>
-              <button ng-click="removeItem($index)" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+              <button ng-click="removeItem(income)" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
             </td>
           </tr>
           <tr>

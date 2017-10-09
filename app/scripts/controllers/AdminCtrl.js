@@ -198,22 +198,24 @@ angular.module('app.adminController', [])
     }
   })
 
-  .controller('IncomeCtrl', function ($scope) {
+  .controller('IncomeCtrl', function ($scope,$firebaseArray, func) {
+
+    var ref = firebase.database().ref().child("incomeTable");
+
+    $scope.incomeTable = $firebaseArray(ref);
 
     $scope.searchInput = ""
     $scope.newItem = {type: "Monthly"};
 
-    $scope.incomeTable = [{type: "Monthly", description: 'Salary', amount: 5000},
-      {type: "Once off", description: 'Donation', amount: 3500}]
-
     $scope.incomeOptions = ["Monthly","Once off"];
 
     $scope.addItem = function () {
-      $scope.incomeTable.push($scope.newItem)
+      // $scope.incomeTable.$add($scope.newItem)
+      func.AddToList($scope.incomeTable,$scope.newItem)
     };
 
-    $scope.removeItem = function(index){
-      $scope.incomeTable.splice(index,1)
+    $scope.removeItem = function(item){
+      $scope.incomeTable.$remove(item)
     };
 
     $scope.searchFilter = function (input) {

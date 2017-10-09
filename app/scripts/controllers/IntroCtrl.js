@@ -1,6 +1,6 @@
 angular.module('app.introController', [])
 
-  .controller('IntroCtrl', function ($scope,$window, $state) {
+  .controller('IntroCtrl', function ($timeout, $scope, $firebaseObject, $firebaseArray, $firebaseAuth) {
 
     $().ready(function () {
       $("#bride").animate({marginLeft: '0px'}, 1300, 'easeOutBounce');

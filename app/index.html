@@ -129,6 +129,23 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCn7sK1OE6sSSDS0nL-aYEwa-E1et3j-_Q",
+    authDomain: "weddingvibes-f4398.firebaseapp.com",
+    databaseURL: "https://weddingvibes-f4398.firebaseio.com",
+    projectId: "weddingvibes-f4398",
+    storageBucket: "weddingvibes-f4398.appspot.com",
+    messagingSenderId: "91203406031"
+  };
+  firebase.initializeApp(config);
+</script>
 
 <!-- build:js scripts/main.min.js -->
 <script src="scripts/main.js"></script>
@@ -140,6 +157,7 @@
 <script src="scripts/controllers/BudgetCtrl.js"></script>
 <script src="scripts/controllers/VenueCtrl.js"></script>
 <script src="scripts/directives/input.js"></script>
+<script src="scripts/services/functionService.js"></script>
 
 
 <!-- endbuild -->

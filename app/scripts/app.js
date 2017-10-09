@@ -11,7 +11,9 @@ angular.module('app',[
   'app.adminController',
   'app.budgetController',
   'app.venueController',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'firebase',
+  'service.func'
 ])
 
   .run(
