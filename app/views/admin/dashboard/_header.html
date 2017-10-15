@@ -1,8 +1,8 @@
-<div layout="row" layout-xs="column">
+<div layout="row" layout-xs="column" ng-if="!isLoading">
   <div class="dashboard-item" flex>
     <md-card>
       <md-card-content>
-        <canvas id="1" class="chart chart-doughnut" chart-options="optionsDoughnut"
+        <canvas id="1" class="chart chart-doughnut" ng-init="initiateDougnut()"  chart-options="optionsDoughnut"
                 chart-data="dataDoughnut" chart-labels="labelsDoughnut">
         </canvas>
       </md-card-content>

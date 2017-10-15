@@ -1,6 +1,6 @@
 angular.module('app.adminController', [])
 
-  .controller('AdminCtrl', function ($scope, $timeout, $mdDialog) {
+  .controller('AdminCtrl', function ($scope, func, $timeout, $mdDialog, $rootScope) {
     $scope.navItemButtons = {
       navOverview: false,
       navIncome: false,
@@ -63,16 +63,18 @@ angular.module('app.adminController', [])
 
     /////////////////////Doughnut//////////////////////
 
-    $scope.labelsDoughnut = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
-    $scope.dataDoughnut = [300, 500, 100];
-    $scope.optionsDoughnut = {
-      legend: {
-        display: false,
-        position: "right",
-        labels: {
-          fontColor: 'rgb(255, 99, 132)'
+    $scope.initiateDougnut = function () {
+      $scope.labelsDoughnut = ['income'];
+      $scope.dataDoughnut = func.getChartData("incomeTable");
+      $scope.optionsDoughnut = {
+        legend: {
+          display: false,
+          position: "right",
+          labels: {
+            fontColor: 'rgb(255, 99, 132)'
+          }
         }
-      }
+      };
     };
 
     /////////////////////Pie//////////////////////
@@ -198,108 +200,126 @@ angular.module('app.adminController', [])
     }
   })
 
-  .controller('IncomeCtrl', function ($scope,$firebaseArray, func) {
+  .controller('IncomeCtrl', function ($scope, func) {
 
-    var ref = firebase.database().ref().child("incomeTable");
+    $scope.incomeTable = func.incomeTable;
 
-    $scope.incomeTable = $firebaseArray(ref);
+    $scope.searchInput = "";
 
-    $scope.searchInput = ""
     $scope.newItem = {type: "Monthly"};
 
     $scope.incomeOptions = ["Monthly","Once off"];
 
     $scope.addItem = function () {
-      // $scope.incomeTable.$add($scope.newItem)
-      func.AddToList($scope.incomeTable,$scope.newItem)
+      func.AddToList("incomeTable",$scope.newItem)
     };
 
     $scope.removeItem = function(item){
-      $scope.incomeTable.$remove(item)
+      func.RemoveFromList("incomeTable",item)
+    };
+
+    $scope.editItem = function (item) {
+      func.EditList("incomeTable",item)
     };
 
     $scope.searchFilter = function (input) {
       return {description:input}
     };
 
-    $scope.totalIncome = function () {
-      var Total = 0
-      angular.forEach($scope.incomeTable,function (value) {
-        Total += value.amount
-      })
-
-      return Total
-    }
+    $scope.total = function () {
+      return func.SumAmount("incomeTable");
+    };
   })
 
-  .controller('ExpenseCtrl', function ($scope) {
+  .controller('ExpenseCtrl', function ($scope,func,$filter) {
 
-    $scope.searchInput = ""
-    $scope.newItem = {type: "Stationary" , selected: false};
+    $scope.expenseTable = func.expenseTable;
+    $scope.expenseOptions = func.lookups;
+    $scope.searchInput = "";
+    $scope.newItem = {selected: false};
 
-    $scope.expenseTable = [{selected: true , type: "Stationary", description: 'Salary', amount: 5000 , quantity:1},
-      {selected: true, type: "Bridal attire", description: 'Donation', amount: 3500, quantity:2}]
+    $scope.showDropdown = false;
 
-    $scope.expenseOptions = ["Stationary","Bridal attire"];
-
-    $scope.addItem = function () {
-      $scope.expenseTable.push($scope.newItem)
+    $scope.selectItem = function (item) {
+      $scope.newItem.type = item;
+      $scope.showDropdown = false;
     };
 
-    $scope.removeItem = function(index){
-      $scope.expenseTable.splice(index,1)
-    };
+    $scope.showDropdownChange = function () {
+      $scope.newExpenseType = $scope.newItem.type;
+      $scope.expenseOptions2 = [];
 
-    $scope.searchFilter = function (input) {
-      return {description:input}
-    };
-
-    $scope.totalExpense = function () {
-      var Total = 0
-
-      angular.forEach($scope.expenseTable,function (value) {
-        if(value.selected){
-          var costQuantity = value.amount * value.quantity;
-          Total += costQuantity
+      angular.forEach($scope.expenseOptions,function (value) {
+        if(value.$value.indexOf($scope.newItem.type) != -1){
+          $scope.expenseOptions2.push(value);
         }
       });
 
-      return Total
-    }
+      if ($scope.expenseOptions2.length > 0){
+        $scope.showDropdown = true;
+        $scope.newExpenseType = undefined
+      } else {
+        $scope.showDropdown = false;
+        $scope.newExpenseType = $scope.newItem.type;
+      }
+
+      return $scope.showDropdown
+    };
+
+    $scope.addItem = function () {
+      func.AddToList("expenseTable",$scope.newItem)
+
+      if($scope.newExpenseType != undefined){
+        func.AddToLookups("expenseTable",$scope.newExpenseType)
+      }
+    };
+
+    $scope.removeItem = function(item){
+      func.RemoveFromList("expenseTable",item)
+    };
+
+    $scope.editItem = function (item) {
+      func.EditList("expenseTable",item)
+    };
+
+    $scope.total = function () {
+      return func.SumAmount("expenseTable");
+    };
+
+    $scope.searchFilter = function (input) {
+      return {description:input}
+    };
   })
 
-  .controller('GuestsCtrl', function ($scope) {
+  .controller('GuestsCtrl', function ($scope, func) {
 
+    $scope.guestsTable = func.guestsTable;
     $scope.searchInput = ""
     $scope.newItem = {type: "Family" , going: false};
-
-    $scope.guestsTable = [{going: true , type: "Friend", name: 'Ruhan' ,surname:"Odendaal"},
-      {going: true , type: "Family", name: 'Boraine' ,surname:"Barnard"}]
-
     $scope.guestsOptions = ["Family","Friend","Groom's men"];
 
     $scope.addItem = function () {
-      $scope.guestsTable.push($scope.newItem)
+      func.AddToList("guestsTable",$scope.newItem)
     };
 
-    $scope.removeItem = function(index){
-      $scope.guestsTable.splice(index,1)
+    $scope.removeItem = function(item){
+      func.RemoveFromList("guestsTable",item)
+    };
+
+    $scope.editItem = function (item) {
+      func.EditList("guestsTable",item)
+    };
+
+    $scope.total = function () {
+      return func.SumGuests()[0];
+    };
+
+    $scope.totalGoing = function () {
+      return func.SumGuests()[1];
     };
 
     $scope.searchFilter = function (input) {
       return {name:input}
     };
-
-    $scope.totalGuestsGoing = function () {
-      var Total = 0
-
-      angular.forEach($scope.guestsTable,function (value) {
-        if(value.going){
-          Total ++
-        }
-      });
-
-      return Total
-    }
   });
 

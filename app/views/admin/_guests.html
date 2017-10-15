@@ -9,7 +9,7 @@
     <md-card-content>
       <form>
         <div class="form-group">
-          <label for="exampleSelect1">Expense type</label>
+          <label for="exampleSelect1">Guest type</label>
           <select class="form-control" id="exampleSelect1" ng-model="newItem.type"
                   ng-options="item for item in guestsOptions">
           </select>
@@ -56,21 +56,21 @@
           <tbody>
           <tr ng-repeat="item in guestsTable | filter: searchFilter(searchInput)">
             <td style="width:10%">{{$index}}</td>
-            <td style="width:20%"><select class="table-input" ng-model="item.type" ng-options="item for item in guestsOptions"></select></td>
-            <td style="width:20%"><input class="table-input" type="text" ng-model="item.name"></td>
-            <td style="width:20%"><input class="table-input" type="text" ng-model="item.surname"></td>
-            <td style="width:20%"><input type="checkbox" value="" ng-model="item.going"></td>
+            <td style="width:20%"><select ng-change="editItem(item)" class="table-input" ng-model="item.type" ng-options="item for item in guestsOptions"></select></td>
+            <td style="width:20%"><input ng-change="editItem(item)" class="table-input" type="text" ng-model="item.name"></td>
+            <td style="width:20%"><input ng-change="editItem(item)" class="table-input" type="text" ng-model="item.surname"></td>
+            <td style="width:20%"><input ng-change="editItem(item)" type="checkbox" value="" ng-model="item.going"></td>
             <td style="width:10%">
-              <button type="button" ng-click="removeItem($index)" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+              <button type="button" ng-click="removeItem(item)" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
             </td>
           </tr>
           <tr>
             <td></td>
             <td></td>
-            <td></td>
-            <td></td>
+            <td><strong>Total guests invited</strong></td>
+            <td><strong>{{total()}}</strong></td>
             <td><strong>Total guests going</strong></td>
-            <td><strong>{{totalGuestsGoing()}}</strong></td>
+            <td><strong>{{totalGoing()}}</strong></td>
             <td></td>
           </tr>
           </tbody>

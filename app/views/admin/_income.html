@@ -53,21 +53,21 @@
           </tr>
           </thead>
           <tbody>
-          <tr ng-repeat="income in incomeTable | filter: searchFilter(searchInput)">
+          <tr ng-repeat="item in incomeTable | filter: searchFilter(searchInput)">
             <td>{{$index}}</td>
-            <td><select ng-change="incomeTable.$save(income)" class="table-input" ng-model="income.type" ng-options="item for item in incomeOptions"></select>
+            <td><select ng-change="editItem(item)" class="table-input" ng-model="item.type" ng-options="item for item in incomeOptions"></select>
             </td>
-            <td><input ng-change="incomeTable.$save(income)" class="table-input" type="text" ng-model="income.description"></td>
-            <td>R <input ng-change="incomeTable.$save(income)" class="table-input" type="number" ng-model="income.amount"></td>
+            <td><input ng-change="editItem(item)" class="table-input" type="text" ng-model="item.description"></td>
+            <td>R <input ng-change="editItem(item)" class="table-input" type="number" ng-model="item.amount"></td>
             <td>
-              <button ng-click="removeItem(income)" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+              <button ng-click="removeItem(item)" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
             </td>
           </tr>
           <tr>
             <td></td>
             <td></td>
             <td><strong>Total</strong></td>
-            <td><strong>{{totalIncome()| currency:'R'}}</strong></td>
+            <td><strong>{{total() | currency:'R'}}</strong></td>
           </tr>
           </tbody>
         </table>

@@ -301,6 +301,12 @@ tfoot td {
 
 /*begin intro*/
 
+.loader {
+  background: url(images/loaders/loader.gif) no-repeat center center;
+  height: 200px;
+  width: 200px;
+}
+
 .intro-image{
   -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
   filter: grayscale(100%);
@@ -546,4 +552,18 @@ md-dialog{
 .table-mobile {
   min-width: 500px;
   overflow-x: hidden;
+}
+
+.dropdown {
+  border: 1px solid lightgray;
+}
+
+.dropdown .dropdown-item {
+  padding-left:10px;
+}
+
+.dropdown .dropdown-item:hover {
+  color: white;
+  background-color: royalblue;
+
 }

@@ -17,10 +17,12 @@ angular.module('app',[
 ])
 
   .run(
-    [          '$rootScope', '$state', '$stateParams',
-      function ($rootScope,   $state,   $stateParams) {
+    [          '$rootScope', '$state', '$stateParams', 'func',
+      function ($rootScope,   $state,   $stateParams, func) {
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
+        $rootScope.isLoading = true;
+        func.getAllData();
       }
     ]
   )
