@@ -1,9 +1,12 @@
-<div layout="row" layout-xs="column">
+<div layout="row" layout-xs="column" ng-if="!isLoading">
 
   <div class="dashboard-item" layout="column" flex>
     <md-card>
+
+      <h3 class="dash-heading">Expense list</h3>
+
       <md-card-content>
-        <canvas id="Pie" class="chart chart-pie" chart-options="optionsPie"
+        <canvas ng-init="initiateExpensesPie()" id="Pie" class="chart chart-pie" chart-options="optionsPie"
                 chart-data="dataPie" chart-labels="labelsPie">
         </canvas>
       </md-card-content>
@@ -17,24 +20,18 @@
 
   <div class="dashboard-item" flex>
     <md-card style="height: 90%">
-      <div style="overflow-y: scroll">
-        <md-card-content>
-          <md-content>
-            <md-list flex>
-              <md-subheader class="md-no-sticky">3 line item (with hover)</md-subheader>
-              <md-list-item class="md-3-line" ng-repeat="item in todos" ng-click="null">
-                <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}"/>
-                <div class="md-list-item-text" layout="column">
-                  <h3>{{ item.who }}</h3>
-                  <h4>{{ item.what }}</h4>
-                  <p>{{ item.notes }}</p>
-                </div>
-              </md-list-item>
-            </md-list>
 
-          </md-content>
-        </md-card-content>
-      </div>
+      <h3 class="dash-heading">Expenses paid</h3>
+
+      <md-card-content>
+        <md-content>
+          <md-list-item ng-repeat="expense in expenseList | filter: expenseListFilter">
+            <p> {{ expense.description }}</p> <strong style="padding-right: 10px" > R{{expense.price * expense.quantity }} </strong>
+            <md-checkbox class="md-secondary" ng-change="expenseListEdit(expense)" ng-model="expense.paid"></md-checkbox>
+          </md-list-item>
+        </md-content>
+      </md-card-content>
+
     </md-card>
   </div>
 </div>

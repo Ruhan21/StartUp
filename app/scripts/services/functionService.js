@@ -36,7 +36,7 @@ angular.module('service.func', [])
     angular.forEach(this[table],function (value) {
       if(angular.isDefined(value.quantity)){
         if(value.selected){
-          Total += (value.amount * value.quantity)
+          Total += (value.price * value.quantity)
         }
       } else {
         Total += value.amount
@@ -79,5 +79,29 @@ angular.module('service.func', [])
     DataArray.push(this.SumAmount(table))
 
     return DataArray
+  };
+
+  this.getExpenseDetailedData = function () {
+    let labelArray = [];
+    let numberArray = [];
+    let DataArray = [];
+
+
+    angular.forEach(this.expenseTable,function (value) {
+
+      if(value.selected) {
+        labelArray.push(value.description);
+        numberArray.push((value.price * value.quantity));
+      }
+
+    });
+
+    DataArray.push(labelArray,numberArray);
+
+    return DataArray
+  };
+
+  this.selectedExpenseFilter = function (item) {
+    return item.selected === true
   }
 });

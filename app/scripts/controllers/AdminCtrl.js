@@ -79,17 +79,21 @@ angular.module('app.adminController', [])
 
     /////////////////////Pie//////////////////////
 
-    $scope.labelsPie = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
-    $scope.dataPie = [300, 500, 100];
-    $scope.optionsPie = {
-      legend: {
-        display: true,
-        position: "right",
-        labels: {
-          fontColor: 'rgb(255, 99, 132)'
+    $scope.initiateExpensesPie = function () {
+      var dataArray = func.getExpenseDetailedData();
+      $scope.labelsPie = dataArray[0];
+      $scope.dataPie = dataArray[1];
+      $scope.optionsPie = {
+        legend: {
+          display: true,
+          position: "right",
+          labels: {
+            fontColor: 'rgb(255, 99, 132)'
+          }
         }
-      }
+      };
     };
+
 
     /////////////////Bar chart///////////////////////////
 
@@ -113,79 +117,32 @@ angular.module('app.adminController', [])
     };
 
 
-    /////////////////////GuestList//////////////////////////
+    /////////////////////ExpenseList//////////////////////////
 
-    var imagePath = 'img/list/60.jpeg';
+    $scope.expenseList = func.expenseTable;
 
-    $scope.phones = [
-      {
-        type: 'Home',
-        number: '(555) 251-1234',
-        options: {
-          icon: 'communication:phone'
-        }
-      },
-      {
-        type: 'Cell',
-        number: '(555) 786-9841',
-        options: {
-          icon: 'communication:phone',
-          avatarIcon: true
-        }
-      },
-      {
-        type: 'Office',
-        number: '(555) 314-1592',
-        options: {
-          face: imagePath
-        }
-      },
-      {
-        type: 'Offset',
-        number: '(555) 192-2010',
-        options: {
-          offset: true,
-          actionIcon: 'communication:phone'
-        }
+    $scope.expenseListFilter = function (item) {
+        return func.selectedExpenseFilter(item)
+    };
+
+    $scope.expenseListEdit = function (item) {
+      let today = new Date();
+      let dd = today.getDate();
+      let mm = today.getMonth()+1; //January is 0!
+
+      let yyyy = today.getFullYear();
+      if(dd<10){
+        dd='0'+dd;
       }
-    ];
-    $scope.todos = [
-      {
-        face: imagePath,
-        what: 'Brunch this weekend?',
-        who: 'Min Li Chan',
-        when: '3:08PM',
-        notes: " I'll be in your neighborhood doing errands"
-      },
-      {
-        face: imagePath,
-        what: 'Brunch this weekend?',
-        who: 'Min Li Chan',
-        when: '3:08PM',
-        notes: " I'll be in your neighborhood doing errands"
-      },
-      {
-        face: imagePath,
-        what: 'Brunch this weekend?',
-        who: 'Min Li Chan',
-        when: '3:08PM',
-        notes: " I'll be in your neighborhood doing errands"
-      },
-      {
-        face: imagePath,
-        what: 'Brunch this weekend?',
-        who: 'Min Li Chan',
-        when: '3:08PM',
-        notes: " I'll be in your neighborhood doing errands"
-      },
-      {
-        face: imagePath,
-        what: 'Brunch this weekend?',
-        who: 'Min Li Chan',
-        when: '3:08PM',
-        notes: " I'll be in your neighborhood doing errands"
-      },
-    ];
+      if(mm<10){
+        mm='0'+mm;
+      }
+
+      today = dd+'/'+mm+'/'+yyyy;
+
+      item.datePaid = today;
+      func.EditList('expenseTable',item);
+    }
 
   })
 
