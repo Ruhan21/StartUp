@@ -1,33 +1,96 @@
-<div layout="row" class="container venue-details">
-  <div flex="33">
-    <md-card>
-      <img ng-click="optionClick('google')" src="http://via.placeholder.com/350"/>
-      <md-card-content>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada rutrum elit, volutpat volutpat
-          elit
-          condimentum id.</p>
-      </md-card-content>
-    </md-card>
-  </div>
-  <div flex="33">
-    <md-card>
-      <img src="http://via.placeholder.com/350"/>
-      <md-card-content>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada rutrum elit, volutpat volutpat
-          elit
-          condimentum id.</p>
-      </md-card-content>
-    </md-card>
+<div class="container card-section">
+
+  <div class="row">
+    <div class="col-md-4">
+      <div id="Title0" class="card-title active-card" ng-click="switchCard(0)">
+        <span class="glyphicon glyphicon-map-marker icon" style="font-size: 45px"></span>
+        <h3 class="card-text">Google maps</h3>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div id="Title1" class="card-title"  ng-click="switchCard(1)">
+        <span class="glyphicon glyphicon-list-alt icon" style="font-size: 45px"></span>
+        <h3 class="card-text">Seat layout</h3>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div id="Title2" class="card-title"  ng-click="switchCard(2)">
+        <span class="glyphicon glyphicon-book icon" style="font-size: 45px"></span>
+        <h3 class="card-text">Rules & Regulations</h3>
+      </div>
+    </div>
   </div>
 
-  <div flex="33">
-    <md-card>
-      <img src="http://via.placeholder.com/350"/>
-      <md-card-content>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada rutrum elit, volutpat volutpat
-          elit
-          condimentum id.</p>
-      </md-card-content>
-    </md-card>
+  <div id="CardCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <div class="card-content">
+          <h3>Google Maps</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada rutrum elit, volutpat volutpat
+            elit
+            condimentum id.</p>
+
+          <div class="row">
+            <div class="col-md-8">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3588.8960967207863!2d28.126823315107337!3d-25.905785983571526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9565446d4652b5%3A0xd79a9ba2faaa0661!2s47+Dawie+De+Villiers+St%2C+The+Reeds%2C+Centurion%2C+0061!5e0!3m2!1sen!2sza!4v1508869112265" width="400" height="300" frameborder="0" style="border:0" allowfullscreen>
+              </iframe>
+            </div>
+
+            <div class="col-md-4">
+              <h3>Directions</h3>
+              <ul>
+                <li>roin malesuada</li>
+                <li>roin malesuada</li>
+                <li>roin malesuada</li>
+                <li>roin malesuada</li>
+                <li>roin malesuada</li>
+                <li>roin malesuada</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="card-content">
+          <h3>Guest Seats</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada rutrum elit, volutpat volutpat
+            elit
+            condimentum id.</p>
+
+          <div class="row">
+            <div class="col-md-2 venue-table" ng-repeat="table in guestTable">
+              <img id="table{{$index}}" src="http://via.placeholder.com/100" class="img-circle"/>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="card-content">
+          <h3>Rules and Regulations</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam cursus, tellus in viverra consectetur, nisi
+            justo pretium libero, quis consectetur massa velit finibus turpis. Integer mollis dolor sit amet felis
+            fermentum, quis ultricies mi tempor. Vestibulum a est tellus. Cras id nisl in lacus faucibus pretium.
+            Maecenas efficitur scelerisque mi, ac malesuada urna luctus et. In hac habitasse platea dictumst. In hac
+            habitasse platea dictumst.
+          </p>
+          <p>
+            Curabitur tempor sollicitudin leo eu commodo. Donec quam lorem, ornare a
+            condimentum vel, scelerisque luctus ipsum. Nam non consectetur diam, nec hendrerit massa. Nullam eu augue
+            velit. Nam feugiat efficitur aliquam. Praesent tempor ultricies porta. Donec vestibulum feugiat laoreet.
+            Fusce in felis turpis. Quisque et facilisis orci.
+          </p>
+
+        </div>
+      </div>
+    </div>
+
   </div>
+
 </div>

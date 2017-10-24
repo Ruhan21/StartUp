@@ -45,28 +45,29 @@
           <input ng-model="searchInput" type="text" class="form-control" id="search" placeholder="Search">
           <thead>
           <tr>
-            <th style="width:10%">#</th>
-            <th style="width:20%">Type</th>
-            <th style="width:20%">Name</th>
-            <th style="width:20%">Surname</th>
-            <th style="width:20%">Going</th>
-            <th style="width:10%">Remove</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Going</th>
+            <th>Table</th>
+            <th>Remove</th>
           </tr>
           </thead>
           <tbody>
           <tr ng-repeat="item in guestsTable | filter: searchFilter(searchInput)">
-            <td style="width:10%">{{$index}}</td>
-            <td style="width:20%"><select ng-change="editItem(item)" class="table-input" ng-model="item.type" ng-options="item for item in guestsOptions"></select></td>
-            <td style="width:20%"><input ng-change="editItem(item)" class="table-input" type="text" ng-model="item.name"></td>
-            <td style="width:20%"><input ng-change="editItem(item)" class="table-input" type="text" ng-model="item.surname"></td>
-            <td style="width:20%"><input ng-change="editItem(item)" type="checkbox" value="" ng-model="item.going"></td>
-            <td style="width:10%">
+            <td class="input-cell"><select ng-change="editItem(item)" class="table-input" ng-model="item.type" ng-options="item for item in guestsOptions"></select></td>
+            <td class="input-cell"><input ng-change="editItem(item)" class="table-input" type="text" ng-model="item.name"></td>
+            <td class="input-cell"><input ng-change="editItem(item)" class="table-input" type="text" ng-model="item.surname"></td>
+            <td class="input-cell">
+              <md-switch ng-model="item.going" ng-change="editItem(item)" aria-label="Switch 1">
+              </md-switch>
+            </td>
+            <td class="input-cell"><input ng-change="editItem(item)" class="table-input" type="number" ng-model="item.table"></td>
+            <td class="input-cell">
               <button type="button" ng-click="removeItem(item)" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
             </td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
             <td><strong>Total guests invited</strong></td>
             <td><strong>{{total()}}</strong></td>
             <td><strong>Total guests going</strong></td>

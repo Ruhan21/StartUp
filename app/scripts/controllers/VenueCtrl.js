@@ -1,6 +1,6 @@
 angular.module('app.venueController', [])
 
-  .controller('VenueCtrl', function ($scope, $state) {
+  .controller('VenueCtrl', function ($scope, $state, func) {
 
     $().ready(function () {
       $("#vContacts").animate({marginTop: '-179px'}, 1000, 'easeOutBounce');
@@ -45,18 +45,21 @@ angular.module('app.venueController', [])
       }
     };
 
-    $scope.optionGoogle = false;
+    $scope.switchCard = function (index) {
+      $('#CardCarousel').carousel(index);
 
-    $scope.optionClick = function (type) {
-      switch (type) {
-        case 'google':
-          $scope.optionGoogle = !$scope.optionGoogle;
-          break;
+      $('#Title'+index).addClass('active-card')
+
+      for (var i = 0; i < 3; i++) {
+        if(i != index){
+          $('#Title'+i).removeClass('active-card')
+        }
       }
     }
 
-    var doAnimate = function (id) {
-      $("#vContacts").animate({marginTop: '-179px'}, 1000, 'easeOutBounce');
-    }
 
-  });
+      $scope.guestTable = func.getGuestsByTables();
+      console.log($scope.guestTable);
+
+
+    });

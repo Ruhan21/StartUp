@@ -104,4 +104,21 @@ angular.module('service.func', [])
   this.selectedExpenseFilter = function (item) {
     return item.selected === true
   }
+
+  this.getGuestsByTables = function () {
+    let returnArray = [];
+
+    angular.forEach(this.guestsTable, function (value) {
+      let tableArray = [];
+
+      if (angular.isDefined(returnArray[value.table - 1])) {
+        returnArray[value.table - 1].push(value)
+      } else {
+        tableArray.push(value);
+        returnArray.push(tableArray);
+      }
+    });
+
+    return returnArray;
+  }
 });
