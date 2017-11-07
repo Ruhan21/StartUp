@@ -61,5 +61,14 @@ angular.module('app.venueController', [])
       $scope.guestTable = func.getGuestsByTables();
       console.log($scope.guestTable);
 
+      var tempGuestTables =  $scope.guestTable;
+
+      $scope.selectTable = function (table, id) {
+        angular.forEach($scope.guestTable, function (value, key) {
+          if (table === value) {
+            $scope.selectedTable = table;
+          }
+        })
+      };
 
     });

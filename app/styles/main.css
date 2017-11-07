@@ -650,6 +650,13 @@ md-dialog{
   background-color: #e6e6e6;
 }
 
+.guestTableCard{
+  background-color: #c5c3ca;
+  min-height: 110px;
+  border-radius: 100%;
+  border: 1px solid black;
+}
+
 
 /*/////// Dashboard///////////////*/
 

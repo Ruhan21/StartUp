@@ -56,14 +56,34 @@
 
       <div class="item">
         <div class="card-content">
-          <h3>Guest Seats</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada rutrum elit, volutpat volutpat
-            elit
-            condimentum id.</p>
 
           <div class="row">
-            <div class="col-md-2 venue-table" ng-repeat="table in guestTable">
-              <img id="table{{$index}}" src="http://via.placeholder.com/100" class="img-circle"/>
+            <div class="col-sm-9">
+              <h3>Guest Seats</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada rutrum elit, volutpat volutpat
+                elit
+                condimentum id.</p>
+
+              <div class="row">
+                <div class="col-md-2 venue-table" ng-repeat="table in guestTable track by $index">
+                  <div ng-click="selectTable(table,'table'+$index)" id="table{{$index}}" class="guestTableCard">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-sm-3">
+              <md-list class="md-dense" flex>
+                <md-subheader class="md-no-sticky">Guests</md-subheader>
+                <md-list-item class="md-3-line" ng-repeat="guest in selectedTable">
+                  <img src="http://via.placeholder.com/50" class="md-avatar" alt="{{item.who}}"/>
+                  <div class="md-list-item-text" layout="column">
+                    <h3>{{ guest.name }}</h3>
+                    <h4>Part of the Family</h4>
+                    <p>What a guy</p>
+                  </div>
+                </md-list-item>
+              </md-list>
             </div>
           </div>
 
