@@ -2,6 +2,8 @@ angular.module('service.func', [])
 
 .service('func', function($firebaseArray, $firebaseObject, $q, $rootScope) {
 
+  this.testComponentName = 'Yes boys';
+
   this.refTable = function (table) {
     return firebase.database().ref().child(table)
   };
