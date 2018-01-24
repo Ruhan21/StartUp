@@ -12,35 +12,35 @@
         <div class="form-group">
           <label for="expenseType">Expense type</label>
           <div class="input-group">
-              <input ng-change="showDropdownChange()" ng-model="newItem.type" type="text" class="form-control" id="expenseType">
+              <input ng-change="$ctrl.showDropdownChange()" ng-model="$ctrl.newItem.type" type="text" class="form-control" id="expenseType">
               <span class="input-group-addon" id="expandDropdown">expand</span>
           </div>
           <div ng-if="showDropdown" class="dropdown">
-            <div class="dropdown-item" ng-click="selectItem(item.$value)" ng-repeat="item in expenseOptions2">{{item.$value}}</div>
+            <div class="dropdown-item" ng-click="$ctrl.selectItem(item.$value)" ng-repeat="item in $ctrl.expenseOptions2">{{item.$value}}</div>
           </div>
         </div>
 
         <div class="form-group">
           <label for="description">Description</label>
-          <input type="text" ng-model="newItem.description" class="form-control" id="description">
+          <input type="text" ng-model="$ctrl.newItem.description" class="form-control" id="description">
         </div>
 
         <div class="form-group">
           <label for="price">Price</label>
-          <input type="number" ng-model="newItem.price" class="form-control" id="price">
+          <input type="number" ng-model="$ctrl.newItem.price" class="form-control" id="price">
         </div>
 
         <div class="form-group">
           <label for="quantity">Quantity</label>
-          <input type="number" ng-model="newItem.quantity" class="form-control" id="quantity">
+          <input type="number" ng-model="$ctrl.newItem.quantity" class="form-control" id="quantity">
         </div>
 
         <div class="form-group">
           <label for="budget">Budget amount</label>
-          <input type="number" ng-model="newItem.budget" class="form-control" id="budget">
+          <input type="number" ng-model="$ctrl.newItem.budget" class="form-control" id="budget">
         </div>
 
-        <button type="submit" ng-click="addItem()" class="btn btn-primary pull-right">Submit</button>
+        <button type="submit" ng-click="$ctrl.addItem()" class="btn btn-primary pull-right">Submit</button>
       </form>
     </md-card-content>
   </md-card>
@@ -57,7 +57,7 @@
       <md-card-content>
 
         <table class="table table-sm table-striped table-hover table-responsive">
-          <input ng-model="searchInput" type="text" class="form-control" id="search" placeholder="Search">
+          <input ng-model="$ctrl.searchInput" type="text" class="form-control" id="search" placeholder="Search">
           <thead>
           <tr>
             <th>Selected</th>
@@ -70,20 +70,20 @@
           </tr>
           </thead>
           <tbody>
-          <tr ng-repeat="item in expenseTable | filter: searchFilter(searchInput)">
+          <tr ng-repeat="item in $ctrl.expenseTable | filter: searchFilter(searchInput)">
             <td class="input-cell">
-              <md-switch ng-change="editItem(item)" ng-model="item.selected">
+              <md-switch ng-change="$ctrl.editItem(item)" ng-model="item.selected">
               </md-switch>
               <!--<input ng-change="editItem(item)" type="checkbox" value="" ng-model="item.selected"></label>-->
             </td>
-            <td class="input-cell"><select ng-change="editItem(item)" class="table-input" ng-model="item.type" ng-options="item.$value as item.$value for item in expenseOptions"></select>
+            <td class="input-cell"><select ng-change="$ctrl.editItem(item)" class="table-input" ng-model="item.type" ng-options="item.$value as item.$value for item in $ctrl.expenseOptions"></select>
             </td>
-            <td class="input-cell"><input ng-change="editItem(item)" class="table-input" type="text" ng-model="item.description"></td>
-            <td class="input-cell"><input ng-change="editItem(item)" class="table-input" type="number" ng-model="item.price"></td>
-            <td class="input-cell"><input ng-change="editItem(item)" class="table-input" type="number" ng-model="item.quantity"></td>
-            <td class="input-cell"><input ng-change="editItem(item)" class="table-input" type="number" ng-model="item.budget"></td>
+            <td class="input-cell"><input ng-change="$ctrl.editItem(item)" class="table-input" type="text" ng-model="item.description"></td>
+            <td class="input-cell"><input ng-change="$ctrl.editItem(item)" class="table-input" type="number" ng-model="item.price"></td>
+            <td class="input-cell"><input ng-change="$ctrl.editItem(item)" class="table-input" type="number" ng-model="item.quantity"></td>
+            <td class="input-cell"><input ng-change="$ctrl.editItem(item)" class="table-input" type="number" ng-model="item.budget"></td>
             <td class="input-cell">
-              <button ng-click="removeItem(item)" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+              <button ng-click="$ctrl.removeItem(item)" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
             </td>
 
           </tr>
@@ -93,7 +93,7 @@
             <td></td>
             <td></td>
             <td><strong>Total</strong></td>
-            <td><strong>{{total() | currency:'R'}}</strong></td>
+            <td><strong>{{$ctrl.total() | currency:'R'}}</strong></td>
             <td></td>
           </tr>
           </tbody>

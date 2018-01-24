@@ -9,19 +9,19 @@
     <div class="container">
       <div id="dashMenuMobile" class="row collapse">
 
-        <div data-toggle="collapse" data-target="#dashMenuMobile" ng-click="clickNavItem('navOverview')" ng-class="{'selected-nav': navItemButtons.navOverviewMobile}" id="navOverviewMobile" class="col-md-12 side-nav-button">
+        <div data-toggle="collapse" data-target="#dashMenuMobile" ng-click="$ctrl.clickNavItem('navOverview')" ng-class="{'selected-nav': $ctrl.navItemButtons.navOverviewMobile}" id="navOverviewMobile" class="col-md-12 side-nav-button">
           Overview <span class="pull-right glyphicon glyphicon-home"></span>
         </div>
 
-        <div data-toggle="collapse" data-target="#dashMenuMobile" ng-click="clickNavItem('navIncome')" ng-class="{'selected-nav': navItemButtons.navIncomeMobile}" id="navIncomeMobile" class="col-md-12 side-nav-button">
+        <div data-toggle="collapse" data-target="#dashMenuMobile" ng-click="$ctrl.clickNavItem('navIncome')" ng-class="{'selected-nav': $ctrl.navItemButtons.navIncomeMobile}" id="navIncomeMobile" class="col-md-12 side-nav-button">
           Income <span class="pull-right glyphicon glyphicon-home"></span>
         </div>
 
-        <div data-toggle="collapse" data-target="#dashMenuMobile" ng-click="clickNavItem('navExpenses')" ng-class="{'selected-nav': navItemButtons.navExpensesMobile}" id="navExpensesMobile"class="col-md-12 side-nav-button">
+        <div data-toggle="collapse" data-target="#dashMenuMobile" ng-click="$ctrl.clickNavItem('navExpenses')" ng-class="{'selected-nav': $ctrl.navItemButtons.navExpensesMobile}" id="navExpensesMobile"class="col-md-12 side-nav-button">
           Expenses <span class="pull-right glyphicon glyphicon-home"></span>
         </div>
 
-        <div data-toggle="collapse" data-target="#dashMenuMobile"  ng-click="clickNavItem('navGuests')" ng-class="{'selected-nav': navItemButtons.navGuestsMobile}" id="navGuestsMobile" class="col-md-12 side-nav-button">
+        <div data-toggle="collapse" data-target="#dashMenuMobile"  ng-click="$ctrl.clickNavItem('navGuests')" ng-class="{'selected-nav': $ctrl.navItemButtons.navGuestsMobile}" id="navGuestsMobile" class="col-md-12 side-nav-button">
           Guests <span class="pull-right glyphicon glyphicon-home"></span>
         </div>
       </div>
@@ -45,19 +45,19 @@
 
         <div class="row">
 
-          <div ng-click="clickNavItem('navOverview')" ng-class="{'selected-nav': navItemButtons.navOverview}" id="navOverview" class="col-md-12 side-nav-button">
+          <div ng-click="clickNavItem('navOverview')" ng-class="{'selected-nav': $ctrl.navItemButtons.navOverview}" id="navOverview" class="col-md-12 side-nav-button">
             Overview <span class="pull-right glyphicon glyphicon-home"></span>
           </div>
 
-          <div ng-click="clickNavItem('navIncome')" ng-class="{'selected-nav': navItemButtons.navIncome}" id="navIncome" class="col-md-12 side-nav-button">
+          <div ng-click="clickNavItem('navIncome')" ng-class="{'selected-nav': $ctrl.navItemButtons.navIncome}" id="navIncome" class="col-md-12 side-nav-button">
             Income <span class="pull-right glyphicon glyphicon-usd"></span>
           </div>
 
-          <div ng-click="clickNavItem('navExpenses')" ng-class="{'selected-nav': navItemButtons.navExpenses}" id="navExpenses"class="col-md-12 side-nav-button">
+          <div ng-click="clickNavItem('navExpenses')" ng-class="{'selected-nav': $ctrl.navItemButtons.navExpenses}" id="navExpenses"class="col-md-12 side-nav-button">
             Expenses <span class="pull-right glyphicon glyphicon-tag"></span>
           </div>
 
-          <div ng-click="clickNavItem('navGuests')" ng-class="{'selected-nav': navItemButtons.navGuests}" id="navGuests" class="col-md-12 side-nav-button">
+          <div ng-click="clickNavItem('navGuests')" ng-class="{'selected-nav': $ctrl.navItemButtons.navGuests}" id="navGuests" class="col-md-12 side-nav-button">
             Guests <span class="pull-right glyphicon glyphicon-user"></span>
           </div>
         </div>
@@ -72,10 +72,10 @@
 
     <md-content flex layout-padding>
 
-      <div ng-if="navItemButtons.navOverview" ng-include src="'views/admin/dashboard/_dashboard.html'"></div>
-      <div ng-if="navItemButtons.navIncome" ng-include src="'views/admin/_income.html'"></div>
-      <div ng-if="navItemButtons.navExpenses" ng-include src="'views/admin/_expenses.html'"></div>
-      <div ng-if="navItemButtons.navGuests" ng-include src="'views/admin/_guests.html'"></div>
+      <div ng-if="$ctrl.navItemButtons.navOverview" ng-include src="'views/admin/dashboard/_dashboard.html'"></div>
+      <div ng-if="$ctrl.navItemButtons.navIncome" ng-include src="'views/admin/_income.html'"></div>
+      <div ng-if="$ctrl.navItemButtons.navExpenses" ng-include src="'views/admin/_expenses.html'"></div>
+      <div ng-if="$ctrl.navItemButtons.navGuests" ng-include src="'views/admin/_guests.html'"></div>
 
     </md-content>
 

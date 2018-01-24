@@ -11,7 +11,7 @@
 <div id="guests" class="container" style="display: none">
   <div class="row">
     <md-list>
-      <md-list-item ng-repeat="person in people" ng-click="goToPerson(person.name, $event)" class="noright">
+      <md-list-item ng-repeat="person in $ctrl.people" ng-click="$ctrl.goToPerson(person.name, $event)" class="noright">
         <img alt="{{ person.name }}" ng-src="{{ person.img }}" class="md-avatar"/>
         <p>{{ person.name }}</p>
 
@@ -26,7 +26,7 @@
     <br>
     <hr class="fancy-line">
 
-    <div class="btn btn-primary venue-button" ng-click="toggleVenueGuests('#guests','#venue')">Venue</div>
+    <div class="btn btn-primary venue-button" ng-click="$ctrl.toggleVenueGuests('#guests','#venue')">Venue</div>
   </div>
 </div>
 

@@ -10,22 +10,22 @@
       <form>
         <div class="form-group">
           <label for="exampleSelect1">Guest type</label>
-          <select class="form-control" id="exampleSelect1" ng-model="newItem.type"
-                  ng-options="item for item in guestsOptions">
+          <select class="form-control" id="exampleSelect1" ng-model="$ctrl.newItem.type"
+                  ng-options="item for item in $ctrl.guestsOptions">
           </select>
         </div>
 
         <div class="form-group">
           <label for="Name">Name</label>
-          <input type="text" ng-model="newItem.name" class="form-control" id="Name">
+          <input type="text" ng-model="$ctrl.newItem.name" class="form-control" id="Name">
         </div>
 
         <div class="form-group">
           <label for="Surname">Surname</label>
-          <input type="text" ng-model="newItem.surname" class="form-control" id="Surname">
+          <input type="text" ng-model="$ctrl.newItem.surname" class="form-control" id="Surname">
         </div>
 
-        <button type="submit" ng-click="addItem()" class="btn btn-primary pull-right">Submit</button>
+        <button type="submit" ng-click="$ctrl.addItem()" class="btn btn-primary pull-right">Submit</button>
       </form>
     </md-card-content>
   </md-card>
@@ -42,7 +42,7 @@
       <md-card-content>
 
         <table class="table table-sm table-striped table-hover">
-          <input ng-model="searchInput" type="text" class="form-control" id="search" placeholder="Search">
+          <input ng-model="$ctrl.searchInput" type="text" class="form-control" id="search" placeholder="Search">
           <thead>
           <tr>
             <th>Type</th>
@@ -54,24 +54,24 @@
           </tr>
           </thead>
           <tbody>
-          <tr ng-repeat="item in guestsTable | filter: searchFilter(searchInput)">
-            <td class="input-cell"><select ng-change="editItem(item)" class="table-input" ng-model="item.type" ng-options="item for item in guestsOptions"></select></td>
-            <td class="input-cell"><input ng-change="editItem(item)" class="table-input" type="text" ng-model="item.name"></td>
-            <td class="input-cell"><input ng-change="editItem(item)" class="table-input" type="text" ng-model="item.surname"></td>
+          <tr ng-repeat="item in $ctrl.guestsTable | filter: searchFilter(searchInput)">
+            <td class="input-cell"><select ng-change="$ctrl.editItem(item)" class="table-input" ng-model="item.type" ng-options="item for item in $ctrl.guestsOptions"></select></td>
+            <td class="input-cell"><input ng-change="$ctrl.editItem(item)" class="table-input" type="text" ng-model="item.name"></td>
+            <td class="input-cell"><input ng-change="$ctrl.editItem(item)" class="table-input" type="text" ng-model="item.surname"></td>
             <td class="input-cell">
-              <md-switch ng-model="item.going" ng-change="editItem(item)" aria-label="Switch 1">
+              <md-switch ng-model="$ctrl.item.going" ng-change="$ctrl.editItem(item)" aria-label="Switch 1">
               </md-switch>
             </td>
-            <td class="input-cell"><input ng-change="editItem(item)" class="table-input" type="number" ng-model="item.table"></td>
+            <td class="input-cell"><input ng-change="$ctrl.editItem(item)" class="table-input" type="number" ng-model="item.table"></td>
             <td class="input-cell">
-              <button type="button" ng-click="removeItem(item)" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+              <button type="button" ng-click="$ctrl.removeItem(item)" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
             </td>
           </tr>
           <tr>
             <td><strong>Total guests invited</strong></td>
-            <td><strong>{{total()}}</strong></td>
+            <td><strong>{{$ctrl.total()}}</strong></td>
             <td><strong>Total guests going</strong></td>
-            <td><strong>{{totalGoing()}}</strong></td>
+            <td><strong>{{$ctrl.totalGoing()}}</strong></td>
             <td></td>
           </tr>
           </tbody>

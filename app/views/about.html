@@ -37,26 +37,26 @@
 
       <hr class="about">
       <div layout="row" style="position: relative;">
-        <div ng-if="!centerImageVisable" flex="50">
-          <img ng-click="centerImg()" id="aboutTopLeft" class="img-responsive img-circle about-img"
+        <div ng-if="!$ctrl.centerImageVisable" flex="50">
+          <img ng-click="$ctrl.centerImg()" id="aboutTopLeft" class="img-responsive img-circle about-img"
                src="http://via.placeholder.com/250" alt="">
         </div>
 
-        <div ng-show="centerImageVisable" flex="100" style=" text-align: -webkit-center;">
+        <div ng-show="$ctrl.centerImageVisable" flex="100" style=" text-align: -webkit-center;">
 
           <div layout="row" layout-align="space-around center">
             <div flex="25">
-              <img ng-click="imgClick('previous')" ng-class="imgClass[0].class" id="imgPrevious"
+              <img ng-click="$ctrl.imgClick('previous')" ng-class="$ctrl.imgClass[0].class" id="imgPrevious"
                    class="img-responsive img-circle about-img"
                    src="http://via.placeholder.com/100" alt="">
             </div>
             <div flex="50">
-              <img ng-class="imgClass[1].class" style="border: 2px solid;" id="aboutCenter"
+              <img ng-class="$ctrl.imgClass[1].class" style="border: 2px solid;" id="aboutCenter"
                    class="img-responsive img-circle about-img middle"
                    src="http://via.placeholder.com/250" alt="">
             </div>
             <div flex="25">
-              <img ng-click="imgClick('next')" ng-class="imgClass[2].class" id="imgNext"
+              <img ng-click="$ctrl.imgClick('next')" ng-class="$ctrl.imgClass[2].class" id="imgNext"
                    class="img-responsive img-circle about-img"
                    src="http://via.placeholder.com/100" alt="">
             </div>
@@ -64,8 +64,8 @@
 
         </div>
 
-        <div ng-if="!centerImageVisable" flex="50" style=" text-align: -webkit-right;">
-          <img ng-click="centerImg()" id="aboutBottomRight" class="img-responsive img-circle about-img"
+        <div ng-if="!$ctrl.centerImageVisable" flex="50" style=" text-align: -webkit-right;">
+          <img ng-click="$ctrl.centerImg()" id="aboutBottomRight" class="img-responsive img-circle about-img"
                src="http://via.placeholder.com/250" alt="">
         </div>
 

@@ -9,9 +9,12 @@ angular.module('app',[
   'app.introController',
   'app.headerController',
   'app.adminController',
-  'app.budgetController',
   'app.venueController',
   'app.testComponent',
+  'app.introComponent',
+  'app.aboutComponent',
+  'app.venueComponent',
+  'app.dashboardComponent',
   'ui.bootstrap',
   'firebase',
   'service.func'
@@ -30,10 +33,29 @@ angular.module('app',[
 
   .config(function ($stateProvider, $urlServiceProvider) {
 
-    // $urlRouterProvider.otherwise('/');
-    $urlServiceProvider.rules.otherwise({ state: 'testComponent' });
+    $urlServiceProvider.rules.otherwise({ state: 'introComponent' });
 
     $stateProvider
+
+      .state('introComponent', {
+        url: '/intro',
+        component: 'intro'
+      })
+
+      .state('aboutComponent', {
+        url: '/about',
+        component: 'about'
+      })
+
+      .state('venueComponent', {
+        url: '/venue',
+        component: 'venue'
+      })
+
+      .state('dashboardComponent', {
+        url: '/dashboard',
+        component: 'dashboard'
+      })
 
       .state('testComponent', {
         url: '/testComponent',

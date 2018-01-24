@@ -6,8 +6,8 @@
       <h3 class="dash-heading">Expense list</h3>
 
       <md-card-content>
-        <canvas ng-init="initiateExpensesPie()" id="Pie" class="chart chart-pie" chart-options="optionsPie"
-                chart-data="dataPie" chart-labels="labelsPie">
+        <canvas ng-init="$ctrl.initiateExpensesPie()" id="Pie" class="chart chart-pie" chart-options="$ctrl.optionsPie"
+                chart-data="$ctrl.dataPie" chart-labels="labelsPie">
         </canvas>
       </md-card-content>
     </md-card>
@@ -25,9 +25,9 @@
 
       <md-card-content>
         <md-content>
-          <md-list-item ng-repeat="expense in expenseList | filter: expenseListFilter">
+          <md-list-item ng-repeat="expense in $ctrl.expenseList | filter: expenseListFilter">
             <p> {{ expense.description }}</p> <strong style="padding-right: 10px" > R{{expense.price * expense.quantity }} </strong>
-            <md-checkbox class="md-secondary" ng-change="expenseListEdit(expense)" ng-model="expense.paid"></md-checkbox>
+            <md-checkbox class="md-secondary" ng-change="$ctrl.expenseListEdit(expense)" ng-model="expense.paid"></md-checkbox>
           </md-list-item>
         </md-content>
       </md-card-content>

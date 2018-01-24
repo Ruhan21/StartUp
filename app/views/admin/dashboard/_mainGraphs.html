@@ -5,8 +5,8 @@
         <!--<canvas id="pie" class="chart chart-pie"-->
                 <!--chart-data="dataDoughnut" chart-labels="labelsDoughnut" chart-options="optionsDoughnut">-->
         <!--</canvas>-->
-        <canvas id="bar" class="chart chart-bar" chart-options="optionsBar"
-                chart-data="dataBar" chart-labels="labelsBar" chart-series="seriesBar">
+        <canvas id="bar" class="chart chart-bar" chart-options="$ctrl.optionsBar"
+                chart-data="$ctrl.dataBar" chart-labels="$ctrl.labelsBar" chart-series="$ctrl.seriesBar">
         </canvas>
       </md-card-content>
     </md-card>
@@ -15,9 +15,9 @@
   <div class="dashboard-item" flex>
     <md-card>
       <md-card-content>
-        <canvas id="line" class="chart chart-line" chart-data="data"
-                chart-labels="labels" chart-series="series" chart-options="options"
-                chart-dataset-override="datasetOverride" chart-click="onClick">
+        <canvas id="line" class="chart chart-line" chart-data="$ctrl.data"
+                chart-labels="$ctrl.labels" chart-series="$ctrl.series" chart-options="$ctrl.options"
+                chart-dataset-override="$ctrl.datasetOverride" chart-click="$ctrl.onClick">
         </canvas>
       </md-card-content>
     </md-card>

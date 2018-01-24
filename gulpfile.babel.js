@@ -116,10 +116,13 @@ gulp.task('scripts', () =>
       './app/scripts/controllers/IntroCtrl.js',
       './app/scripts/controllers/HeaderCtrl.js',
       './app/scripts/controllers/AdminCtrl.js',
-      './app/scripts/controllers/BudgetCtrl.js',
       './app/scripts/controllers/VenueCtrl.js',
       './app/scripts/services/functionService.js',
       './app/scripts/components/testComponent.js',
+      './app/scripts/components/introComponent.js',
+      './app/scripts/components/aboutComponent.js',
+      './app/scripts/components/venueComponent.js',
+      './app/scripts/components/dashboardComponent.js',
       // Other scripts
     ])
       .pipe($.newer('.tmp/scripts'))
